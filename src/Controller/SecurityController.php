@@ -18,15 +18,14 @@ class SecurityController extends AbstractController
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
-        $user = New User();
+        $user = new User();
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted()) {
             if($form->isValid()) {
-                $password = $passwordEncoder->encodePassword(
-                    $user,
+                $password = $passwordEncoder->encodePassword($user,
                     $user->getPlainPassword()
                 );
                 $user->setPassword($password);
@@ -46,7 +45,7 @@ class SecurityController extends AbstractController
 
 
         return $this->render('security/register.html.twig', [
-            'form' => createView
+            'form' => $form->createView()
         ]);
     }
     /**
