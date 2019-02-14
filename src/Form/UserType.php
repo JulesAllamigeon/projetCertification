@@ -4,13 +4,16 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 class UserType extends AbstractType
 {
@@ -47,14 +50,19 @@ class UserType extends AbstractType
             )
             ->add(
                 'sexe',
-                TextType::class,
+                ChoiceType::class,
                 [
-                    'label' => 'Sexe'
+                    'choices' => [
+                        'Homme' => 'm',
+                        'Femme' => 'f'
+                    ],
+                    'expanded' => true
+
                 ]
             )
             ->add(
                 'telephone',
-                IntegerType::class,
+                TextType::class,
                 [
                     'label' => 'Téléphone'
                 ]
