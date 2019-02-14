@@ -4,10 +4,14 @@ namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity(fields={"email"},
+ *     message="Il existe déja un utilisateur avec cet email")
  */
 class User implements UserInterface
 {
@@ -20,36 +24,47 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Le nom est obligatoire")
+     * @Assert\Length(max="50", maxMessage="Le nom ne doit pas depasser {{limit}} caractères")
      */
     private $lastname;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Le prénom est obligatoire")
+     * @Assert\Length(max="50", maxMessage="Le prénom ne doit pas faire plus de
+     * {{limit}} caractères")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Votre âge est obligatoire")
      */
     private $age;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="L'email est obligatoire")
+     * @Assert\Email(message="L'email n'est pas valide")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez mentionner un sexe")
      */
     private $sexe;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=10)
+     * @Assert\NotBlank(message="Le numéro de téléphone doit comporter 10 chiffres")
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $password;
 
@@ -59,6 +74,7 @@ class User implements UserInterface
     private $role = 'ROLE_USER';
     /**
      * @var string
+     * @Assert\NotBlank(message="Le mot de passe est obligatoire")
      */
     private $plainPassword;
 
@@ -137,12 +153,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getTelephone(): ?int
+    public function getTelephone(): ?string
     {
         return $this->telephone;
     }
 
-    public function setTelephone(int $telephone): self
+    public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
 
@@ -239,7 +255,7 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        return [$this->role];
     }
 
     /**
