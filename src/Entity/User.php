@@ -118,12 +118,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAge(): ?int
+    public function getAge(): ?string
     {
         return $this->age;
     }
 
-    public function setAge(int $age): self
+    public function setAge(string $age): self
     {
         $this->age = $age;
 
@@ -207,7 +207,10 @@ class User implements UserInterface
         $this->plainPassword = $plainPassword;
         return $this;
     }
-
+    public function __toString()
+    {
+        return $this->firstname. ' ' . $this->lastname;
+    }
 
     /**
      * @return Collection|Booking[]
