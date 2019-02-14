@@ -35,7 +35,7 @@ class Booking
 
     /**
      * @ORM\Column(type="string", length=100)
-     * @Assert\NotBlank("Veuillez renseigner votre profession")
+     * @Assert\NotBlank(message="Veuillez renseigner votre profession")
      */
     private $job;
 
