@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -51,10 +52,17 @@ class User
      */
     private $password;
 
+
+    /**
+     * @var string
+     * @Assert\NotBlank(message="Le mot de passe est obligatoire")
+     */
+    private $plainPassword;
+
     /**
      * @ORM\Column(type="string", length=20)
      */
-    private $role;
+    private $role = 'ROLE_USER';
 
     public function getId(): ?int
     {
@@ -154,6 +162,22 @@ class User
     {
         $this->role = $role;
 
+        return $this;
+    }
+    /**
+     * @return string
+     */
+    public function getPlainPassword(): string
+    {
+        return $this->plainPassword;
+    }
+    /**
+     * @param string $plainPassword
+     * @return User
+     */
+    public function setPlainPassword(string $plainPassword): User
+    {
+        $this->plainPassword = $plainPassword;
         return $this;
     }
 }
