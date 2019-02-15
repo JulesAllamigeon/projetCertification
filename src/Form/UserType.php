@@ -36,7 +36,7 @@ class UserType extends AbstractType
             )
             ->add(
                 'age',
-                IntegerType::class,
+                TextType::class,
                 [
                     'label' => 'Age'
                 ]
