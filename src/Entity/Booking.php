@@ -3,12 +3,19 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Form\FormView;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
+ * @UniqueEntity(fields="date", message="Cet horaire est déjà reservé")
  */
-class Booking
+class Booking implements FormTypeInterface
 {
     /**
      * @ORM\Id()
@@ -24,12 +31,14 @@ class Booking
     private $user;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", unique=true)
+     * @Assert\NotBlank(message="La date du RDV n'est pas renseignée")
      */
     private $date;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez selectionner un motif de consultation")
      */
     private $motive;
 
@@ -40,32 +49,38 @@ class Booking
     private $job;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=3)
+     * @Assert\NotBlank(message="Ce champs est obligatoire")
      */
     private $smoker;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $medical_past;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $sports;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $medication;
 
     /**
      * @ORM\Column(type="string", length=50, nullable=true)
+     * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $allergies;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="integer", length=2)
+     * @Assert\NotBlank(message="Ce champs est obligatoire")
      */
     private $sleep_schedule;
 
@@ -189,15 +204,107 @@ class Booking
         return $this;
     }
 
-    public function getSleepSchedule(): ?string
+    public function getSleepSchedule(): ?int
     {
         return $this->sleep_schedule;
     }
 
-    public function setSleepSchedule(string $sleep_schedule): self
+    public function setSleepSchedule(int $sleep_schedule): self
     {
         $this->sleep_schedule = $sleep_schedule;
 
         return $this;
+    }
+
+    /**
+     * Builds the form.
+     *
+     * This method is called for each type in the hierarchy starting from the
+     * top most type. Type extensions can further modify the form.
+     *
+     * @see FormTypeExtensionInterface::buildForm()
+     *
+     * @param FormBuilderInterface $builder The form builder
+     * @param array $options The options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        // TODO: Implement buildForm() method.
+    }
+
+    /**
+     * Builds the form view.
+     *
+     * This method is called for each type in the hierarchy starting from the
+     * top most type. Type extensions can further modify the view.
+     *
+     * A view of a form is built before the views of the child forms are built.
+     * This means that you cannot access child views in this method. If you need
+     * to do so, move your logic to {@link finishView()} instead.
+     *
+     * @see FormTypeExtensionInterface::buildView()
+     *
+     * @param FormView $view The view
+     * @param FormInterface $form The form
+     * @param array $options The options
+     */
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        // TODO: Implement buildView() method.
+    }
+
+    /**
+     * Finishes the form view.
+     *
+     * This method gets called for each type in the hierarchy starting from the
+     * top most type. Type extensions can further modify the view.
+     *
+     * When this method is called, views of the form's children have already
+     * been built and finished and can be accessed. You should only implement
+     * such logic in this method that actually accesses child views. For everything
+     * else you are recommended to implement {@link buildView()} instead.
+     *
+     * @see FormTypeExtensionInterface::finishView()
+     *
+     * @param FormView $view The view
+     * @param FormInterface $form The form
+     * @param array $options The options
+     */
+    public function finishView(FormView $view, FormInterface $form, array $options)
+    {
+        // TODO: Implement finishView() method.
+    }
+
+    /**
+     * Configures the options for this type.
+     *
+     * @param OptionsResolver $resolver The resolver for the options
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        // TODO: Implement configureOptions() method.
+    }
+
+    /**
+     * Returns the prefix of the template block name for this type.
+     *
+     * The block prefix defaults to the underscored short class name with
+     * the "Type" suffix removed (e.g. "UserProfileType" => "user_profile").
+     *
+     * @return string The prefix of the template block name
+     */
+    public function getBlockPrefix()
+    {
+        // TODO: Implement getBlockPrefix() method.
+    }
+
+    /**
+     * Returns the name of the parent type.
+     *
+     * @return string|null The name of the parent type if any, null otherwise
+     */
+    public function getParent()
+    {
+        // TODO: Implement getParent() method.
     }
 }
