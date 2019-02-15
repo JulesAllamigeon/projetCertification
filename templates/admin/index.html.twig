@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="mt-3">Gestion de mes RDV</h1>
+
+    <table class="table table-striped mt-3">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id_RDV</th>
+        <th scope="col">Motif</th>
+        <th scope="col" >Date</th>
+        <th scope="col">Profession</th>
+        <th scope="col">Sportif</th>
+        <th scope="col">Fumeur</th>
+        <th scope="col">Antécédents</th>
+        <th scope="col">Médicaments</th>
+        <th scope="col">Allérgies</th>
+        <th scope="col">Sommeil</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for consultation in consultations %}
+        <tr>
+            <td>{{ consultation.id }}</td>
+            <td>{{ consultation.motive }}</td>
+            <td width="150px">{{ consultation.date| date('d/m/Y H:m') }}</td>
+            <td>{{ consultation.job }}</td>
+            <td>{{ consultation.sports }}</td>
+            <td>{{ consultation.smoker }}</td>
+            <td>{{ consultation.medicalPast }}</td>
+            <td>{{ consultation.medication }}</td>
+            <td>{{ consultation.allergies }}</td>
+            <td>{{ consultation.sleepSchedule }}</td>
+
+        </tr>
+
+
+    {% endfor %}
+
+
+
+
+{% endblock %}

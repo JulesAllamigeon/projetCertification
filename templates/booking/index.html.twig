@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Prise de rendez-vous pour {{ app.user }}</h1>
+    {{ form_start(form) }}
+
+    {{ form_row(form.motive) }}
+    {{ form_row(form.date) }}
+    {{ form_row(form.job) }}
+    {{ form_row(form.sports) }}
+    {{ form_row(form.smoker) }}
+    {{ form_row(form.medical_past) }}
+    {{ form_row(form.medication) }}
+    {{ form_row(form.allergies) }}
+    {{ form_row(form.sleep_schedule) }}
+
+
+
+    <div class="text-right">
+        <button type="submit" class="btn btn-outline-primary">Valider</button>
+    </div>
+    {{ form_end(form) }}
+
+
+
+
+
+{% endblock %}
