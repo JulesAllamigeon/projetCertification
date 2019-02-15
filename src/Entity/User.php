@@ -39,7 +39,7 @@ class User implements UserInterface
     private $firstname;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=2)
      * @Assert\NotBlank(message="Votre âge est obligatoire")
      */
     private $age;

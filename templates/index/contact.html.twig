@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - Jacl{% endblock %}
+
+{% block body %}
+
+    <h1 class="mt-2 mb-4">Contact</h1>
+
+    <div class="container">
+        <p>Contactez nous pour plus d'informations</p>
+    </div>
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-md-6">
+        {{ form_row(form.firstname) }}
+        </div>
+        <div class="col-md-6">
+        {{ form_row(form.lastname) }}
+        </div>
+    </div>
+        {{ form_row(form.email) }}
+
+        {{ form_row(form.subject) }}
+
+        {{ form_row(form.message) }}
+
+        <button type="submit" class="btn btn-primary">
+            Envoyer
+        </button>
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
