@@ -8,8 +8,8 @@
     <thead class="thead-dark">
     <tr>
         <th scope="col">Id_RDV</th>
-        <th scope="col">Motif</th>
         <th scope="col" >Date</th>
+        <th scope="col">Motif</th>
         <th scope="col">Profession</th>
         <th scope="col">Sportif</th>
         <th scope="col">Fumeur</th>
@@ -25,8 +25,8 @@
     {% for consultation in consultations %}
         <tr>
             <td>{{ consultation.id }}</td>
+            <td>{{ consultation.date| date('d/m/Y H:m') }}</td>
             <td>{{ consultation.motive }}</td>
-            <td width="150px">{{ consultation.date| date('d/m/Y H:m') }}</td>
             <td>{{ consultation.job }}</td>
             <td>{{ consultation.sports }}</td>
             <td>{{ consultation.smoker }}</td>

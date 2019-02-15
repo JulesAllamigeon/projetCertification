@@ -5,7 +5,9 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('lib/bootstrap.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('lib/css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('style/style.css') }}">
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
+            <link rel="stylesheet" href="js/jquery-ui-timepicker-addon.css">
         {% endblock %}
     </head>
     <body style="background-color: rgb(163, 228, 215); color:white;">
@@ -25,7 +27,7 @@
         {% endif %}
             <!--LEFT PART-->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#"><img src="images/logo.png" height="30px"></a>
+                <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" height="30px" alt="logoSite"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -97,6 +99,11 @@
 
             {% block javascripts %}
             <script src="{{ asset('lib/bootstrap.min.js') }}" ></script>
+                <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+                <script type="text/javascript" src="{{ asset('script/jquery-ui-timepicker-addon.js') }}"></script>
+                <script src="{{ asset('script/jquery-ui-timepicker-fr.js') }}"></script>
+                <script>$('.datepicker').datetimepicker();</script>
             {% endblock %}
         </body>
 

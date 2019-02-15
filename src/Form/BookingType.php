@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Booking;
+use App\Form\DataTransformer\DateTimeToStringTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -13,15 +14,25 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class BookingType extends AbstractType
 {
+    private $transformer;
+
+    public function __construct(DateTimeToStringTransformer $transformer)
+    {
+        $this->transformer = $transformer;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
 
             ->add(
                 'date',
-                DateTimeType::class,
+                TextType::class,
                 [
-                    'widget' => 'single_text'
+                    'attr' => [
+                        'class' => 'datepicker'
+
+                    ]
                 ]
             )
             ->add(
@@ -54,9 +65,9 @@ class BookingType extends AbstractType
                 [
                     'label' => 'Pratique du sport :',
                     'choices' => [
-                        'Pratique occasionnelle' => 'occasionnelle',
-                        'Pratique régulière'    => 'réguliere',
-                        'Pratique intensive'   => 'intensive'
+                        'occasionnelle' => 'occasionnelle',
+                        'régulière'    => 'réguliere',
+                        'intensive'   => 'intensive'
                     ]
                 ]
             )
@@ -107,12 +118,14 @@ class BookingType extends AbstractType
                     'label' => 'Qualité de votre sommeil :',
                     'attr' => [
                         'min' => 0,
-                        'max' => 100
+                        'max' => 10
 
                     ]
                 ]
             )
         ;
+
+        $builder->get('date')->addModelTransformer($this->transformer);
     }
 
     public function configureOptions(OptionsResolver $resolver)
