@@ -1,0 +1,28 @@
+
+
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.menu{
+    padding-left: 0;
+    padding-right: 0;
+}
+.info{
+    height: 350px;
+}
+.text-desc{
+    font-size: 1em;
+}
+.back{
+    background-color: #214b63;
+    height: 395px;
+}
+.svg{
+    width: 55px;
+}
+.txt, .txt-2{
+    font-size: 1.1em;
+    color: aliceblue;
+}
