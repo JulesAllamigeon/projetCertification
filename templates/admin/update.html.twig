@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+        <h1>Modification RDV pour </h1>
+    {{ form_start(form) }}
+
+
+    {{ form_row(form.date) }}
+    {{ form_row(form.motive) }}
+    {{ form_row(form.job) }}
+    {{ form_row(form.sports) }}
+    {{ form_row(form.medical_past) }}
+    {{ form_row(form.smoker) }}
+    {{ form_row(form.medication) }}
+    {{ form_row(form.allergies) }}
+    {{ form_row(form.sleep_schedule) }}
+
+
+    <div class="text-right">
+        <button type="submit" class="btn btn-outline-primary">Modifier</button>
+
+        <button type="submit" class="btn btn-outline-primary"><a href="{{ path('app_admin_admin_index') }}"></a>Retour</button>
+    </div>
+    {{ form_end(form) }}
+
+
+
+
+{% endblock %}

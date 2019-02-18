@@ -1,28 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Prise de rendez-vous pour {{ app.user }}</h1>
+    <h1 class="mt-3 mb-3">Prise de rendez-vous pour {{ app.user }}</h1>
     {{ form_start(form) }}
 
-    {{ form_row(form.motive) }}
-    {{ form_row(form.date) }}
-    {{ form_row(form.job) }}
-    {{ form_row(form.sports) }}
-    {{ form_row(form.smoker) }}
-    {{ form_row(form.medical_past) }}
-    {{ form_row(form.medication) }}
-    {{ form_row(form.allergies) }}
-    {{ form_row(form.sleep_schedule) }}
+    <div class="d-flex">
+        <div class="form-group col-md-6">
+            {{ form_row(form.motive) }}
+            {{ form_row(form.date) }}
+            {{ form_row(form.job) }}
+            {{ form_row(form.sports) }}
+            {{ form_row(form.smoker) }}
+            {{ form_row(form.medical_past) }}
+            {{ form_row(form.medication) }}
+            {{ form_row(form.allergies) }}
+            {{ form_row(form.sleep_schedule) }}
 
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </div>
+        </div>
 
+        {{ form_end(form) }}
 
-    <div class="text-right">
-        <button type="submit" class="btn btn-outline-primary">Valider</button>
+        <div class="col-md-6">
+            <img class="mt-5"  src="{{ asset('images/massage2.jpeg') }}" width="100%">
+            <p class="mt-3">LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM LOREM IPSUM</p>
+        </div>
     </div>
-    {{ form_end(form) }}
-
-
-
 
 
 {% endblock %}
