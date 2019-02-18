@@ -12,25 +12,31 @@
 
     {{ form_start(form) }}
 
-    <div class="row">
-        <div class="col-md-6">
-        {{ form_row(form.firstname) }}
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6">
+                {{ form_row(form.firstname) }}
+            </div>
+            <div class="col-md-6">
+                {{ form_row(form.lastname) }}
+            </div>
+        </div><!--ENDROW-->
+
+            {{ form_row(form.email) }}
+
+            {{ form_row(form.subject) }}
+
+            {{ form_row(form.message) }}
+
+        <div class="align-self-center">
+            <button type="submit" class="btn btn-primary container-fluid">
+                Envoyer
+            </button>
         </div>
-        <div class="col-md-6">
-        {{ form_row(form.lastname) }}
-        </div>
-    </div>
-        {{ form_row(form.email) }}
 
-        {{ form_row(form.subject) }}
+        {{ form_end(form) }}
 
-        {{ form_row(form.message) }}
-
-        <button type="submit" class="btn btn-primary">
-            Envoyer
-        </button>
-
-    {{ form_end(form) }}
-
+    </div><!--END CONTAINER FORM-->
 
 {% endblock %}
