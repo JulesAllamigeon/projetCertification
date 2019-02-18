@@ -1,24 +1,13 @@
-
+:root{
+    --bleu:#0b4c65 ;
+}
 
 
 
 body{
     font-family: 'Roboto', sans-serif;
 }
-.menu{
-    padding-left: 0;
-    padding-right: 0;
-}
-.info{
-    height: 350px;
-}
-.text-desc{
-    font-size: 1em;
-}
-.back{
-    background-color: #214b63;
-    height: 395px;
-}
+
 .svg{
     width: 55px;
 }
@@ -43,3 +32,9 @@ input[type="date"]::-webkit-input-placeholder{
     display: none;
     -webkit-appearance: none;
 }
+
+
+    div .couleurbleu
+    {
+        background-color:var(--bleu) ;
+    }

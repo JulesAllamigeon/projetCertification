@@ -16,6 +16,7 @@ class BookingController extends AbstractController
     public function takeMyRDV(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
+
         $booking = New Booking();
 
         $form = $this->createForm(BookingType::class, $booking);
@@ -28,6 +29,9 @@ class BookingController extends AbstractController
 
                 // represente le user qui s'est connecté
                 $booking->setUser($this->getUser());
+
+
+
 
                 $em->persist($booking);
                 $em->flush();
