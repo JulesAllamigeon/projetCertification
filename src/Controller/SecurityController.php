@@ -42,8 +42,6 @@ class SecurityController extends AbstractController
                 $this->addFlash('error', 'Le formulaire contient des erreurs');
             }
         }
-
-
         return $this->render('security/register.html.twig', [
             'form' => $form->createView()
         ]);
