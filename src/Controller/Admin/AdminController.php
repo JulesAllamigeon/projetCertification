@@ -10,7 +10,6 @@ namespace App\Controller\Admin;
 
 
 use App\Entity\Booking;
-use App\Entity\User;
 use App\Form\BookingType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -91,7 +90,7 @@ class AdminController extends AbstractController
           'booking'  => $booking
         ]);
     }
-
+    
 
 
 
