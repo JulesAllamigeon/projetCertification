@@ -40,9 +40,15 @@
                             <a class="nav-link" href="{{ path('app_index_index') }}">Accueil<span class="sr-only">
                                     (current)</span></a>
                         </li>
+                        {% if app.user is not null %}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ path('app_booking_takemyrdv') }}">Rendez-Vous</a>
                         </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ path('app_security_login') }}">Rendez-Vous</a>
+                                </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="#">A Propos</a>
                         </li>

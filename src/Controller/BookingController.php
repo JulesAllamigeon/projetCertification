@@ -15,31 +15,23 @@ class BookingController extends AbstractController
      */
     public function takeMyRDV(Request $request)
     {
+
         $em = $this->getDoctrine()->getManager();
-
         $booking = New Booking();
-
         $form = $this->createForm(BookingType::class, $booking);
-
-
         $form->handleRequest($request);
 
         if($form->isSubmitted()){
             if($form->isValid()) {
-
                 // represente le user qui s'est connecté
                 $booking->setUser($this->getUser());
-
-
 
 
                 $em->persist($booking);
                 $em->flush();
 
                 $this->addFlash('success', 'Votre RDV a bien été enregistré');
-
                 return $this->redirectToRoute("app_index_index");
-
             }
             else {
                 $this->addFlash('error', 'Votre formulaire contient des erreurs');
