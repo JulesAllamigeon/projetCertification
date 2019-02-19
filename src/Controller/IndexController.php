@@ -59,4 +59,12 @@ class IndexController extends AbstractController
             ]
         );
     }
+
+    /**
+     * @Route("/apropos")
+     */
+    public function apropos()
+    {
+        return $this->render('index/apropos.html.twig');
+    }
 }

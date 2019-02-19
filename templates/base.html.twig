@@ -30,7 +30,7 @@
         {% endif %}
             <!--LEFT PART-->
             <nav class="navbar navbar-expand-md navbar-light bg-light">
-                <a class="navbar-brand" href="#"><img src="{{ asset('images/logo.png') }}" height="30px" alt="logoSite"></a>
+                <a class="navbar-brand" href="{{ path('app_index_index') }}"><img src="{{ asset('images/logo.png') }}" height="30px" alt="logoSite"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -50,7 +50,7 @@
                                 </li>
                         {% endif %}
                         <li class="nav-item">
-                            <a class="nav-link" href="#">A Propos</a>
+                            <a class="nav-link" href="{{ path('app_index_apropos') }}">A Propos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href={{ path('app_index_contact') }}>Contact</a>

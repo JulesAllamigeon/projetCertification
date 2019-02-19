@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Array_;
+use phpDocumentor\Reflection\Types\Mixed_;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -74,7 +75,8 @@ class Booking implements FormTypeInterface
     private $medication;
 
     /**
-     * @ORM\Column(type="simple_array", length=50, nullable=true)
+     *
+     * @ORM\Column(type="string",length=50)
      * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $allergies;
@@ -97,6 +99,25 @@ class Booking implements FormTypeInterface
     {
         return $this->user;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAllergies()
+    {
+        return $this->allergies;
+    }
+
+    /**
+     * @param mixed $allergies
+     * @return Booking
+     */
+    public function setAllergies($allergies)
+    {
+        $this->allergies = $allergies;
+        return $this;
+    }
+
 
     /**
      * @param mixed $user
@@ -193,23 +214,7 @@ class Booking implements FormTypeInterface
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAllergies()
-    {
-        return $this->allergies;
-    }
 
-    /**
-     * @param mixed $allergies
-     * @return Booking
-     */
-    public function setAllergies($allergies)
-    {
-        $this->allergies = $allergies;
-        return $this;
-    }
 
 
 

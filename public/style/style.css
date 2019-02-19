@@ -2,19 +2,39 @@
     --bleu:#0b4c65 ;
 }
 
-
-
 html, body{
     font-family: 'Roboto', sans-serif;
 }
 
+
 .svg{
     width: 55px;
 }
-.txt, .txt-2{
-    font-size: 1.1em;
-    color: aliceblue;
+
+div .couleurbleu
+{
+    background-color:var(--bleu) ;
 }
+
+/******MAP CONTACT*******/
+.map-responsive {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;>
+height:0;
+}
+
+.map-responsive iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+/********FIN MAP CONTACT********/
+
+
+/***Datepicker***/
 .ui-datepicker-current {
     display: none !important;
 }
@@ -32,9 +52,7 @@ input[type="date"]::-webkit-input-placeholder{
     display: none;
     -webkit-appearance: none;
 }
+/*****  fin datepicker ******/
 
 
-    div .couleurbleu
-    {
-        background-color:var(--bleu) ;
-    }
+
