@@ -24,22 +24,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     *
      * @Route("/")
      */
     public function index()
     {
 
-
         $repository = $this->getDoctrine()->getRepository(Booking::class);
-
         $consultations = $repository->findBy([], [
             'date' => 'ASC',
         ]);
 
-
         return $this->render('admin/index.html.twig', [
-            'consultations' => $consultations,
+            'consultations' => $consultations
 
         ]);
     }
@@ -79,6 +76,23 @@ class AdminController extends AbstractController
         ]);
 
     }
+
+    /**
+     * @Route("/patient/{id}")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function view($id)
+    {
+        $em = $this->getDoctrine()->getRepository(Booking::class);
+        $booking = $em->find($id);
+
+        return $this->render('admin/view.html.twig', [
+          'booking'  => $booking
+        ]);
+    }
+
+
 
 
 }

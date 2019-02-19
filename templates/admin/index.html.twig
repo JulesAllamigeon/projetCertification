@@ -19,7 +19,8 @@
                 <th scope="col">Médicaments</th>
                 <th scope="col">Allérgies</th>
                 <th scope="col">Sommeil</th>
-                <th width="250px"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
 
             </tr>
             </thead>
@@ -47,6 +48,9 @@
                     <td>{{ consultation.allergies }}</td>
                     <td>{{ consultation.sleepSchedule }}/10</td>
                     <td><a class="btn btn-info" href="{{ path('app_admin_admin_update', {"id" : consultation.id}) }}">Modifier</a></td>
+                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_view', {"id" : consultation.id}) }}">Voir</a></td>
+
+
                 </tr>
 
 
