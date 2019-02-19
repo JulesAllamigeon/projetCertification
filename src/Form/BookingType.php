@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Booking;
 use App\Form\DataTransformer\DateTimeToStringTransformer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\RangeType;
@@ -75,7 +76,10 @@ class BookingType extends AbstractType
                 'medical_past',
                 TextType::class,
                 [
-                    'label' => 'Antécédents médicaux :'
+                    'label' => 'Antécédents médicaux :',
+                    'attr' => array(
+                        'placeholder' => 'exemple : fracture.. intervention chirurgicale.. '
+                    )
                 ]
             )
             ->add(
@@ -104,13 +108,20 @@ class BookingType extends AbstractType
 
                 ]
             )
-            ->add(
-                'allergies',
-                TextType::class,
-                [
-                    'label' => 'Avez vous des allergies ? Si oui lesquelles'
+            ->add('allergies',ChoiceType::class,[
+                'multiple'=>true,
+                'expanded'=>true,
+                'label' => 'Êtes vous allergique ?',
+                'choices'=>[
+                    'pollen'=>'pollen',
+                    'alimentaire'=>'alimentaire',
+                    'acariens' => 'acariens',
+                    'animaux' => 'animaux',
+                    'soleil' => 'soleil'
                 ]
-            )
+            ])
+
+
             ->add(
                 'sleep_schedule',
                 RangeType::class,
