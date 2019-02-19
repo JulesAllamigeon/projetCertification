@@ -75,8 +75,12 @@ class Booking implements FormTypeInterface
     private $medication;
 
     /**
+<<<<<<< HEAD
      *
      * @ORM\Column(type="string",length=50)
+=======
+     * @ORM\Column(type="string", length=50, nullable=true)
+>>>>>>> b038b1c54810906b797fe11c2a146bd191c176ad
      * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $allergies;
@@ -86,6 +90,11 @@ class Booking implements FormTypeInterface
      * @Assert\NotBlank(message="Ce champs est obligatoire")
      */
     private $sleep_schedule;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Consultation", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $consultation;
 
     public function getId(): ?int
     {
@@ -214,6 +223,30 @@ class Booking implements FormTypeInterface
         return $this;
     }
 
+<<<<<<< HEAD
+
+=======
+    /**
+     * @return mixed
+     */
+    public function getAllergies(): ?string
+    {
+        return $this->allergies;
+    }
+
+    /**
+     * @param mixed $allergies
+     * @return Booking
+     */
+    public function setAllergies(string $allergies)
+    {
+        $this->allergies = $allergies;
+        return $this;
+    }
+>>>>>>> b038b1c54810906b797fe11c2a146bd191c176ad
+
+
+
 
 
 
@@ -320,5 +353,22 @@ class Booking implements FormTypeInterface
     public function getParent()
     {
         // TODO: Implement getParent() method.
+    }
+
+    public function getConsultation(): ?Consultation
+    {
+        return $this->consultation;
+    }
+
+    public function setConsultation(Consultation $consultation): self
+    {
+        $this->consultation = $consultation;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $consultation->getUser()) {
+            $consultation->setUser($this);
+        }
+
+        return $this;
     }
 }

@@ -10,7 +10,10 @@ namespace App\Controller\Admin;
 
 
 use App\Entity\Booking;
+use App\Entity\Consultation;
+use App\Entity\User;
 use App\Form\BookingType;
+use App\Form\ConsultationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -87,11 +90,53 @@ class AdminController extends AbstractController
         $booking = $em->find($id);
 
         return $this->render('admin/view.html.twig', [
-          'booking'  => $booking
+            'booking' => $booking
         ]);
     }
-    
+
+    /**
+     * @Route("/patients")
+     */
+    public function allMyPatients()
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $users = $repository->findBy([], [
+            'lastname' => 'ASC',
+
+        ]);
+
+        return $this->render('admin/patients.html.twig', [
+            'users' => $users
+
+        ]);
+    }
+
+    /**
+     * @Route("/validation")
+     */
+    public function manageMyConsultation(Request $request)
+    {
+        $consultation = new Consultation();
+
+        $form = $this->createForm(ConsultationType::class, $consultation);
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
 
 
 
+
+
+                $em->persist($consultation);
+                $em->flush();
+
+
+
+            }
+        }
+        return $this->render('admin/consultation.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
 }
