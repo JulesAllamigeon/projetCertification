@@ -23,9 +23,9 @@ class ContactType extends AbstractType
                     'label' => 'Prénom'
                 ],
                 [
-                    'constraints' => [
+                    'constraints' =>
                         new NotBlank()
-                    ]
+                    /* Problème de vérification, à gérer */
                 ]
             )
             ->add(
