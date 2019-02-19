@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use http\Message;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -22,9 +23,9 @@ class ContactType extends AbstractType
                     'label' => 'Prénom'
                 ],
                 [
-                    'constraints' => [
-                        NotBlank::class
-                    ]
+                    'constraints' =>
+                        new NotBlank()
+                    /* Problème de vérification, à gérer */
                 ]
             )
             ->add(
@@ -52,18 +53,7 @@ class ContactType extends AbstractType
 
                 ]
             )
-            ->add(
-                'subject',
-                TextType::class,
-                [
-                    'label' => 'Sujet'
-                ],
-                [
-                    'constraints' => [
-                        NotBlank::class
-                    ]
-                ]
-            )
+
             ->add(
                 'message',
                 TextareaType::class,
