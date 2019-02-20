@@ -31,7 +31,7 @@ class IndexController extends AbstractController
             if ($form->isValid()) {
                 $data = $form->getData();
 
-                $message = (new \Swift_Message($data['subject']))
+                $message = (new \Swift_Message('Mail de contact'))
                     //->setFrom($data['email'])
                     ->setFrom('alfredcyril91@gmail.com')
                     ->setTo('alfredcyril91@gmail.com')
