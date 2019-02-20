@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Array_;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -74,7 +73,9 @@ class Booking implements FormTypeInterface
     private $medication;
 
     /**
-     * @ORM\Column(type="simple_array", length=50, nullable=true)
+<<<<<<< HEAD
+     *
+     * @ORM\Column(type="string",length=50)
      * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $allergies;
@@ -84,6 +85,11 @@ class Booking implements FormTypeInterface
      * @Assert\NotBlank(message="Ce champs est obligatoire")
      */
     private $sleep_schedule;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Consultation", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $consultation;
 
     public function getId(): ?int
     {
@@ -97,6 +103,25 @@ class Booking implements FormTypeInterface
     {
         return $this->user;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAllergies() : ?string
+    {
+        return $this->allergies;
+    }
+
+    /**
+     * @param mixed $allergies
+     * @return Booking
+     */
+    public function setAllergies(string $allergies)
+    {
+        $this->allergies = $allergies;
+        return $this;
+    }
+
 
     /**
      * @param mixed $user
@@ -193,25 +218,8 @@ class Booking implements FormTypeInterface
         return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAllergies()
-    {
-        return $this->allergies;
-    }
 
-    /**
-     * @param mixed $allergies
-     * @return Booking
-     */
-    public function setAllergies($allergies)
-    {
-        $this->allergies = $allergies;
-        return $this;
-    }
-
-
+    
 
     public function getSleepSchedule(): ?int
     {
@@ -315,5 +323,22 @@ class Booking implements FormTypeInterface
     public function getParent()
     {
         // TODO: Implement getParent() method.
+    }
+
+    public function getConsultation(): ?Consultation
+    {
+        return $this->consultation;
+    }
+
+    public function setConsultation(Consultation $consultation): self
+    {
+        $this->consultation = $consultation;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $consultation->getUser()) {
+            $consultation->setUser($this);
+        }
+
+        return $this;
     }
 }

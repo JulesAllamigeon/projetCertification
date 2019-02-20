@@ -127,6 +127,7 @@ class BookingType extends AbstractType
                 RangeType::class,
                 [
                     'label' => 'Qualité de votre sommeil :',
+
                     'attr' => [
                         'min' => 0,
                         'max' => 10
