@@ -107,7 +107,6 @@ class AdminController extends AbstractController
 
         return $this->render('admin/patients.html.twig', [
             'users' => $users
-
         ]);
     }
 
@@ -123,7 +122,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-
+                //$consultation->setUser($booking);
 
 
 
