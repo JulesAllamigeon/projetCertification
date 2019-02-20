@@ -7,6 +7,13 @@ html, body{
 }
 
 
+h5{
+    color:black;
+}
+small{
+    color:black;
+}
+
 .svg{
     width: 55px;
 }

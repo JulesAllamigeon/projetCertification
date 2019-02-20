@@ -76,9 +76,6 @@ class Booking implements FormTypeInterface
 <<<<<<< HEAD
      *
      * @ORM\Column(type="string",length=50)
-=======
-     * @ORM\Column(type="string", length=50, nullable=true)
->>>>>>> b038b1c54810906b797fe11c2a146bd191c176ad
      * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $allergies;
@@ -110,7 +107,7 @@ class Booking implements FormTypeInterface
     /**
      * @return mixed
      */
-    public function getAllergies()
+    public function getAllergies() : ?string
     {
         return $this->allergies;
     }
@@ -119,7 +116,7 @@ class Booking implements FormTypeInterface
      * @param mixed $allergies
      * @return Booking
      */
-    public function setAllergies($allergies)
+    public function setAllergies(string $allergies)
     {
         $this->allergies = $allergies;
         return $this;
