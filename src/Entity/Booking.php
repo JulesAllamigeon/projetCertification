@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -15,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
  * @UniqueEntity(fields="date", message="Cet horaire est déjà reservé")
  */
-class Booking implements FormTypeInterface
+class Booking
 {
     /**
      * @ORM\Id()
@@ -73,12 +74,8 @@ class Booking implements FormTypeInterface
     private $medication;
 
     /**
-<<<<<<< HEAD
      *
-     * @ORM\Column(type="string",length=50)
-=======
-     * @ORM\Column(type="string", length=50, nullable=true)
->>>>>>> b038b1c54810906b797fe11c2a146bd191c176ad
+     * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $allergies;
@@ -90,9 +87,20 @@ class Booking implements FormTypeInterface
     private $sleep_schedule;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Consultation", mappedBy="user", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Consultation", mappedBy="user")
      */
     private $consultation;
+    /**
+     * @ORM\Column(type="string", length=25)
+     *
+     */
+    private $status = 'EN_ATTENTE';
+
+    public function __construct()
+    {
+        $this->consultation = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
@@ -110,7 +118,7 @@ class Booking implements FormTypeInterface
     /**
      * @return mixed
      */
-    public function getAllergies()
+    public function getAllergies(): ?string
     {
         return $this->allergies;
     }
@@ -119,7 +127,7 @@ class Booking implements FormTypeInterface
      * @param mixed $allergies
      * @return Booking
      */
-    public function setAllergies($allergies)
+    public function setAllergies(string $allergies):self
     {
         $this->allergies = $allergies;
         return $this;
@@ -221,9 +229,6 @@ class Booking implements FormTypeInterface
         return $this;
     }
 
-
-    
-
     public function getSleepSchedule(): ?int
     {
         return $this->sleep_schedule;
@@ -235,6 +240,26 @@ class Booking implements FormTypeInterface
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     * @return Booking
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+
 
     /**
      * Builds the form.
@@ -328,20 +353,36 @@ class Booking implements FormTypeInterface
         // TODO: Implement getParent() method.
     }
 
-    public function getConsultation(): ?Consultation
+    /**
+     * @return Collection|Consultation[]
+     */
+    public function getConsultation(): Collection
     {
         return $this->consultation;
     }
 
-    public function setConsultation(Consultation $consultation): self
+    public function addConsultation(Consultation $consultation): self
     {
-        $this->consultation = $consultation;
-
-        // set the owning side of the relation if necessary
-        if ($this !== $consultation->getUser()) {
+        if (!$this->consultation->contains($consultation)) {
+            $this->consultation[] = $consultation;
             $consultation->setUser($this);
         }
 
         return $this;
     }
+
+    public function removeConsultation(Consultation $consultation): self
+    {
+        if ($this->consultation->contains($consultation)) {
+            $this->consultation->removeElement($consultation);
+            // set the owning side to null (unless already changed)
+            if ($consultation->getUser() === $this) {
+                $consultation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

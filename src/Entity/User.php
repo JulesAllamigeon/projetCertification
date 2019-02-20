@@ -68,7 +68,6 @@ class User implements UserInterface
      *
      */
     private $password;
-
     /**
      * @ORM\Column(type="string", length=20)
      */
@@ -83,6 +82,12 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="user")
      */
     private $bookings;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank(message="L'adresse est obligatoire")
+     */
+    private $adress;
 
     public function __construct()
     {
@@ -207,6 +212,7 @@ class User implements UserInterface
         $this->plainPassword = $plainPassword;
         return $this;
     }
+
     public function __toString()
     {
         return $this->firstname. ' ' . $this->lastname;
@@ -293,5 +299,17 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
     }
 }
