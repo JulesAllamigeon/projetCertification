@@ -3,8 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Array_;
-use phpDocumentor\Reflection\Types\Mixed_;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -223,33 +221,8 @@ class Booking implements FormTypeInterface
         return $this;
     }
 
-<<<<<<< HEAD
 
-=======
-    /**
-     * @return mixed
-     */
-    public function getAllergies(): ?string
-    {
-        return $this->allergies;
-    }
-
-    /**
-     * @param mixed $allergies
-     * @return Booking
-     */
-    public function setAllergies(string $allergies)
-    {
-        $this->allergies = $allergies;
-        return $this;
-    }
->>>>>>> b038b1c54810906b797fe11c2a146bd191c176ad
-
-
-
-
-
-
+    
 
     public function getSleepSchedule(): ?int
     {
