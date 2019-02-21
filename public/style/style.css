@@ -4,8 +4,14 @@
 
 html, body{
     font-family: 'Roboto', sans-serif;
+    background-color: #a4d4e3;
+    color:white;
 }
 
+.chiffre{
+    font-size:50px;
+    text-shadow: 0 0 0.2em black;
+}
 
 h5{
     color:black;
@@ -79,6 +85,13 @@ body {
 }
 /*******FIN FOOTER STICKY*****/
 
+/*******CARD NOSPATIENTS *****/
+.img-thumbnail {
+    background-color: #a4d4e3;
+}
+
+
+/**********FIN CARD************/
 
 
 
