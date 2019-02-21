@@ -10,9 +10,10 @@
             <link rel="stylesheet" href="js/jquery-ui-timepicker-addon.css">
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('style/style.css') }}">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         {% endblock %}
     </head>
-    <body style="background-color: rgb(163, 228, 215); color:white;">
+    <body >
         {% if is_granted('ROLE_ADMIN') %}
 
             <nav class="navbar navbar-dark navbar-expand bg-danger">
@@ -27,7 +28,8 @@
                                 <a class="nav-link" href="{{ path('app_admin_admin_allmypatients') }}">Gestion des Patients</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Historique des Consultations</a>
+                                <a class="nav-link" href="{{ path('app_admin_admin_historiqueconsultation')
+                                }}">Historique des Consultations</a>
                             </li>
                         </ul>
                     </div>
@@ -72,17 +74,17 @@
                             <ul class="navbar-nav">
                         {% if app.user is null%}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_security_register')}}">Inscription</a>
+                                <button class="btn btn-primary sign p-0 mr-4"><a class="nav-link text-light" href="{{ path('app_security_register')}}">Inscription</a></button>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_security_login') }}">Connexion</a>
+                                <button class="btn btn-outline-success sign p-0"><a class="nav-link text-success" href="{{ path('app_security_login') }}">Connexion</a></button>
                             </li>
                         {% else %}
                             <li class="nav-item">
                                 <a href={{ path('app_user_index', {'firstname': app.user.firstname, 'lastname': app.user.lastname}) }} class="nav-link">{{ app.user }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_security_logout') }}">Déconnexion</a>
+                                <button class="btn btn-danger sign p-0"><a class="nav-link text-white" href="{{ path('app_security_logout') }}">Déconnexion</a></button>
                             </li>
                         {% endif %}
                             </ul>
@@ -123,19 +125,17 @@
                 <div class="row">
 
                     <div class="col-6 col-md-6">
-                        <div class="text-uppercase pl-5">nos partenaires :</div>
+                        <div class="text-uppercase pl-5">nos partenaires</div>
                         <div>
                             <a href="https://www.chiropraxie.com" target="_blank">
-                                <img src="{{ asset('images/logo-afc.png') }}" alt="logo association française de chiropraxie" height="90px" class="pl-5">
+                                <img src="{{ asset('images/logo-afc.png') }}" alt="lien vers association française de chiropraxie" height="70px" class="pl-5">
                             </a>
                         </div>
                     </div>
 
 
-                    <div class="col-6 col-md-6">
-                        <div class="copyright">
-                            <p class="font-weight-light">Copyright &copy 2019 Projet JACL Webforce3 Tous droits réservés</p>
-                        </div>
+                    <div class="col-6 col-md-6 copy-footer">
+                        <span>Copyright &copy 2019 Projet Webforce3 Tous droits réservés</span>
                     </div>
 
                 </div>

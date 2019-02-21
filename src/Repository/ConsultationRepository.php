@@ -19,6 +19,31 @@ class ConsultationRepository extends ServiceEntityRepository
         parent::__construct($registry, Consultation::class);
     }
 
+    public function findByDate($filters)
+    {
+        $qb = $this->createQueryBuilder('b');
+        $qb->orderBy('b.date', 'ASC');
+
+        if (!empty($filters['date_de_debut'])) {
+            $date = \DateTime::createFromFormat('d/m/Y H:i', $filters['date_de_debut']);
+            $qb
+                ->andWhere('b.date >= :dateDebut')
+                ->setParameter(':dateDebut', $date->format('Y-m-d'))
+            ;
+        }
+
+        if (!empty($filters['date_de_fin'])) {
+            $date = \DateTime::createFromFormat('d/m/Y H:i', $filters['date_de_fin']);
+            $qb
+                ->andWhere('b.date <= :dateFin')
+                ->setParameter(':dateFin', $date->format('Y-m-d'))
+            ;
+        }
+
+        return $qb->getQuery()->getResult();
+
+    }
+
     // /**
     //  * @return Consultation[] Returns an array of Consultation objects
     //  */

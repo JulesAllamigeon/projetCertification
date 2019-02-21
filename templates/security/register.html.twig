@@ -2,21 +2,25 @@
 
 
 {% block body %}
-    <h1>Inscription</h1>
-    {{ form_start(form) }}
-    {{ form_row(form.lastname) }}
-    {{ form_row(form.firstname) }}
-    {{ form_row(form.age) }}
-    {{ form_row(form.sexe) }}
-    {{ form_row(form.telephone) }}
-    {{ form_row(form.email) }}
-    {{ form_row(form.adress) }}
-    {{ form_row(form.plainPassword) }}
-    <div class="text-right">
-        <button type="submit" class="btn btn-outline-primary">Inscription</button>
+    <div class="container">
+        <h1 class="my-4">Inscription</h1>
+
+            {{ form_start(form) }}
+
+            {{ form_row(form.lastname) }}
+            {{ form_row(form.firstname) }}
+            {{ form_row(form.age) }}
+            {{ form_row(form.sexe) }}
+            {{ form_row(form.telephone) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.adress) }}
+            {{ form_row(form.plainPassword) }}
+
+        <div class="text-right my-4">
+            <button type="submit" class="btn btn-outline-primary">Inscription</button>
+        </div>
+
+            {{ form_end(form) }}
+
     </div>
-
-
-
-    {{ form_end(form) }}
 {% endblock %}

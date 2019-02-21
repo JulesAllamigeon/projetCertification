@@ -4,9 +4,10 @@
 
 {% block body %}
 
-    <h1 class="mt-2 mb-4">Contact</h1>
+
 
     <div class="container">
+        <h2 class="mt-4 mb-5 ">Contactez nous pour plus d'informations</h2>
 
     </div>
 
@@ -14,8 +15,8 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-6">
-                <p class="mb-5">Contactez nous pour plus d'informations</p>
+            <div class="col-md-6 mt-5">
+
 
             {{ form_start(form) }}
                 {{ form_row(form.firstname) }}
@@ -24,7 +25,7 @@
                 {{ form_row(form.message) }}
             {{ form_end(form) }}
 
-                <div class="align-self-center">
+                <div class="align-self-center mb-3">
                     <button type="submit" class="btn btn-primary container-fluid">
                         Envoyer
                     </button>
@@ -32,28 +33,35 @@
             </div>
             <div class="col-md-6">
 
-
-                            <div class="text-center mt-5">
-
-                                <p>Nos horaires d'ouverture</p>
-
-                                <p>Du Lundi au Vendredi
+                <div class="card text-black-50 mb-5">
+                    <div class="card-header">
+                        <p class="text-center text-uppercase font-weight-bold mb-0">Informations</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <p class="mb-0 text-center">
+                                <i class="far fa-clock"></i>&nbsp;&nbsp;&nbsp;
+                                Ouvert du Lundi au Vendredi
                                 8:00 - 20:00
-                                </p>
-                                <hr>
-                                <p>
-                                Téléphone :
+                            </p>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="mb-0 text-center">
+                                <i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;
                                 n° 01.02.03.04.05
-                                </p>
-                                <hr>
-                                <p>
-                                Localisation :
-                                13 RUE DUSSOUBS 75000 PARIS
-                                </p>
                             </div>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="mb-0 text-center">
+                                <i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;&nbsp;
+                                13 RUE DUSSOUBS 75000 PARIS
+                            </p>
+                        </li>
+                    </ul>
+                </div>
 
 
-                            <div class="map-responsive mb-5">
+                            <div class="map-responsive mb-5 img-thumbnail ">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d985.6079099312252!2d2.355598001177159!3d48.854673202735626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e671fd10fa77a9%3A0xb2bbd365849898f2!2sEcole+Webforce3!5e0!3m2!1sfr!2sfr!4v1550588854517" width="580" height="230" frameborder="0" style="border:0" allowfullscreen></iframe>
                             </div>
 

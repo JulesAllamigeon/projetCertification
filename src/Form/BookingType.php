@@ -40,7 +40,7 @@ class BookingType extends AbstractType
                 'motive',
                 ChoiceType::class,
                 [
-                    'label' => 'Motif de consultation :',
+                    'label' => 'Motif de consultation ',
                     'choices' => [
                         'Choisissez un motif de consultation' => null,
                         'Douleur mâchoire' => 'Douleur mâchoire',
@@ -57,14 +57,14 @@ class BookingType extends AbstractType
                 'job',
                 TextType::class,
                 [
-                    'label' => 'Profession :'
+                    'label' => 'Profession '
                 ]
             )
             ->add(
                 'sports',
                 ChoiceType::class,
                 [
-                    'label' => 'Pratique du sport :',
+                    'label' => 'Pratique du sport ',
                     'choices' => [
                         'occasionnelle' => 'occasionnelle',
                         'régulière'    => 'réguliere',
@@ -76,7 +76,7 @@ class BookingType extends AbstractType
                 'medical_past',
                 TextType::class,
                 [
-                    'label' => 'Antécédents médicaux :',
+                    'label' => 'Antécédents médicaux ',
                     'attr' => array(
                         'placeholder' => 'exemple : fracture.. intervention chirurgicale.. '
                     )
@@ -86,7 +86,7 @@ class BookingType extends AbstractType
                 'smoker',
                 ChoiceType::class,
                 [
-                    'label' => 'Etes vous fumeur ?',
+                    'label' => 'Êtes-vous fumeur ?',
                     'choices' => [
                         'Fumeur' => 'oui',
                         'Non-fumeur' => 'non'
@@ -110,7 +110,7 @@ class BookingType extends AbstractType
             )
             ->add('allergies',TextType::class,[
 
-                'label' => 'Êtes vous allergique ?'
+                'label' => 'Avez-vous des allergies ?'
 
             ])
 
@@ -119,7 +119,7 @@ class BookingType extends AbstractType
                 'sleep_schedule',
                 RangeType::class,
                 [
-                    'label' => 'Qualité de votre sommeil :',
+                    'label' => 'Qualité de votre sommeil ',
 
                     'attr' => [
                         'min' => 0,
