@@ -18,7 +18,7 @@ class ConsultationType extends AbstractType
                 'diagnostic',
                 TextType::class,
                 [
-                    'label' => 'Diagnostic de la séance'
+                    'label' => 'Diagnostique de la scéance'
                 ]
             )
             ->add(

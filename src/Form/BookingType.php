@@ -86,7 +86,7 @@ class BookingType extends AbstractType
                 'smoker',
                 ChoiceType::class,
                 [
-                    'label' => 'Etes vous fumeur ?',
+                    'label' => 'Êtes-vous fumeur ?',
                     'choices' => [
                         'Fumeur' => 'oui',
                         'Non-fumeur' => 'non'
@@ -110,7 +110,7 @@ class BookingType extends AbstractType
             )
             ->add('allergies',TextType::class,[
 
-                'label' => 'Êtes vous allergique ?'
+                'label' => 'Avez-vous des allergies ?'
 
             ])
 
