@@ -18,6 +18,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 /**
  * Class AdminController
  * @package App\Controller\Admin
@@ -111,31 +112,43 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/validation")
+     * @Route("/validation/{id}")
+     *
      */
-    public function manageMyConsultation(Request $request)
+    public function manage(Request $request, Booking $booking, $id)
     {
         $consultation = new Consultation();
 
+        $em2 = $this->getDoctrine()->getRepository(Booking::class);
+        $bookings = $em2->find($id);
+
+
+        $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(ConsultationType::class, $consultation);
         $form->handleRequest($request);
+
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                //$consultation->setUser($booking);
 
+                $consultation->setUser($booking->getUser());
+                $consultation->setDate($booking->getDate());
 
-
+                $booking->setStatus('PAYEE');
 
                 $em->persist($consultation);
                 $em->flush();
 
-
-
+                $this->addFlash('success', 'Votre RDV a bien été validé');
+                return $this->redirectToRoute("app_index_index");
+            }
+            else{
+                $this->addFlash('error', 'Votre validation contient des erreurs');
             }
         }
-        return $this->render('admin/consultation.html.twig', [
-            'form' => $form->createView()
+        return $this->render('admin/manage.html.twig', [
+            'form' => $form->createView(),
+            'booking' => $bookings
         ]);
     }
 }
+

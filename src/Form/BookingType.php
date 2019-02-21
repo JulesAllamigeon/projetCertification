@@ -108,17 +108,10 @@ class BookingType extends AbstractType
 
                 ]
             )
-            ->add('allergies',ChoiceType::class,[
-                'multiple'=>true,
-                'expanded'=>true,
-                'label' => 'Êtes vous allergique ?',
-                'choices'=>[
-                    'pollen'=>'pollen',
-                    'alimentaire'=>'alimentaire',
-                    'acariens' => 'acariens',
-                    'animaux' => 'animaux',
-                    'soleil' => 'soleil'
-                ]
+            ->add('allergies',TextType::class,[
+
+                'label' => 'Êtes vous allergique ?'
+
             ])
 
 
