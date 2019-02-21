@@ -90,6 +90,7 @@ class AdminController extends AbstractController
         $em = $this->getDoctrine()->getRepository(Booking::class);
         $booking = $em->find($id);
 
+
         return $this->render('admin/view.html.twig', [
             'booking' => $booking
         ]);

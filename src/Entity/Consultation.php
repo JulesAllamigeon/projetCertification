@@ -51,6 +51,11 @@ class Consultation
      * @Assert\NotBlank(message="Veuillez saisir un commentaire")
      */
     private $commentaire;
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez selectionner un type de paiement")
+     */
+    private $paiement;
 
     public function getId(): ?int
     {
@@ -116,6 +121,25 @@ class Consultation
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPaiement()
+    {
+        return $this->paiement;
+    }
+
+    /**
+     * @param mixed $paiement
+     * @return Consultation
+     */
+    public function setPaiement($paiement)
+    {
+        $this->paiement = $paiement;
+        return $this;
+    }
+
 
     /**
      * Builds the form.

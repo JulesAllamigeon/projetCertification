@@ -1,18 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+<div class="container d-flex text-center">
 
-    <div class=" mt-3 d-flex justify-content-center">
+    <div class=" mt-3 mr-5 d-flex justify-content-center">
         <div class="card shadow" style="width: 18rem; ">
             <div class="card-header text-black-50 font-weight-bold text-center">
-                Information patient
+                <strong>Patient </strong>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item text-black-50">{{ booking.user.lastname }}</li>
-                <li class="list-group-item text-black-50">{{ booking.user.firstname }}</li>
-                <li class="list-group-item text-black-50">{{ booking.user.age }} ans</li>
-                <li class="list-group-item text-black-50">{{ booking.user.email }}</li>
-                <li class="list-group-item text-black-50">{{ booking.user.telephone}}</li>
+                <li class="list-group-item text-black-50"><strong>Nom </strong> : {{ booking.user.lastname }}</li>
+                <li class="list-group-item text-black-50"><strong>Prénom </strong> : {{ booking.user.firstname }}</li>
+                <li class="list-group-item text-black-50"><strong>Age </strong> : {{ booking.user.age }} ans</li>
+                <li class="list-group-item text-black-50"><strong>Email </strong> : {{ booking.user.email }}</li>
+                <li class="list-group-item text-black-50"><strong>Adresse </strong> : {{ booking.user.adress}}</li>
+                <li class="list-group-item text-black-50"><strong>Téléphone </strong> : {{ booking.user.telephone}}</li>
             </ul>
 
         </div><!--FIN CARD-->
@@ -20,9 +22,40 @@
 
     </div> <!--FIN CONTENT CENTER-->
 
-    <div class="mt-1 d-flex justify-content-center" >
+
+
+    <div class=" mt-3 ml-5 d-flex justify-content-center">
+        <div class="card shadow" style="width: 18rem; ">
+            <div class="card-header text-black-50 font-weight-bold text-center">
+                Consultation
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-black-50"><strong>Id_RDV </strong> : {{ booking.id }}</li>
+                <li class="list-group-item text-black-50"><strong>Date </strong> : {{ booking.date| date('Y-m-d H:i')
+                    }}</li>
+                <li class="list-group-item text-black-50"><strong>Motif </strong> : {{ booking.motive }}</li>
+                <li class="list-group-item text-black-50"><strong>Profession </strong> : {{ booking.job }}</li>
+                <li class="list-group-item text-black-50"><strong>Fumeur </strong> : {{ booking.smoker}}</li>
+                <li class="list-group-item text-black-50"><strong>Antécédents médcaux</strong> : {{ booking
+                    .medicalPast}}</li>
+                <li class="list-group-item text-black-50"><strong>Pratique du sport </strong> : {{ booking.sports}}</li>
+                <li class="list-group-item text-black-50"><strong>Médicaments </strong> : {{ booking.medication}}</li>
+                <li class="list-group-item text-black-50"><strong>Allérgies </strong> : {{ booking.allergies}}</li>
+                <li class="list-group-item text-black-50"><strong>Qualité de sommeil </strong> : {{ booking
+                    .sleepSchedule}}/10</li>
+            </ul>
+
+        </div><!--FIN CARD-->
+
+
+    </div> <!--FIN CONTENT CENTER-->
+
+</div>
+    <div class="text-center" >
         <a class="btn btn-info text-white" href="{{ path('app_admin_admin_index')}}" style="width: 18rem;">Retour</a>
     </div>
+
+
 
 
 {% endblock %}
