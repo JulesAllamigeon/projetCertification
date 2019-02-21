@@ -84,6 +84,12 @@ class UserType extends AbstractType
                     'invalid_message' => 'La confirmation ne correspond pas au mot de passe'
                 ]
             )
+            ->add('adress',
+                TextType::class,
+                [
+                    'label' => 'Adresse postale'
+                ]
+                )
         ;
     }
 
