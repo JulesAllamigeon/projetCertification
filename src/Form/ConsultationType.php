@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Consultation;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,25 +18,36 @@ class ConsultationType extends AbstractType
 
             ->add(
                 'diagnostic',
-                TextType::class,
+                TextareaType::class,
                 [
                     'label' => 'Diagnostique de la scéance'
                 ]
             )
             ->add(
                 'traitement',
-                TextType::class,
+                TextareaType::class,
                 [
                     'label' => 'Traitement'
                 ]
             )
             ->add(
                 'commentaire',
-                TextType::class,
+                TextareaType::class,
                 [
                     'label' => 'Commentaire'
                 ]
             )
+            -> add('paiement',
+                ChoiceType::class,
+                [
+                    'choices' => [
+                        'Choisissez un mode de paiement' => null,
+                        'Chèques' => 'Chèques',
+                        'Carte Bleue' => 'Carte Bleue',
+                        'Espèces' => 'Espèces'
+                    ]
+                ]
+                )
         ;
     }
 

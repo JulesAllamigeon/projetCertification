@@ -10,9 +10,10 @@
             <link rel="stylesheet" href="js/jquery-ui-timepicker-addon.css">
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('style/style.css') }}">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         {% endblock %}
     </head>
-    <body color:white;">
+    <body >
         {% if is_granted('ROLE_ADMIN') %}
 
             <nav class="navbar navbar-dark navbar-expand bg-danger">
@@ -27,7 +28,8 @@
                                 <a class="nav-link" href="{{ path('app_admin_admin_allmypatients') }}">Gestion des Patients</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Historique des Consultations</a>
+                                <a class="nav-link" href="{{ path('app_admin_admin_historiqueconsultation')
+                                }}">Historique des Consultations</a>
                             </li>
                         </ul>
                     </div>

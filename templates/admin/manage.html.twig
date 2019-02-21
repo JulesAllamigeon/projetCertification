@@ -2,12 +2,14 @@
 
 {% block body %}
     <h2 class=" text-center mt-3 mb-3">Valider mes consultations</h2>
+
     <div class="container d-flex">
 
 
         <div class="col-md-6">
             {{ form_start(form) }}
 
+            {{ form_row(form.paiement) }}
             {{ form_row(form.diagnostic) }}
             {{ form_row(form.traitement) }}
             {{ form_row(form.commentaire)}}

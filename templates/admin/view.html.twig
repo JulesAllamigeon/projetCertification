@@ -8,18 +8,32 @@
                 Information patient
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item text-black-50">{{ booking.user.lastname }}</li>
-                <li class="list-group-item text-black-50">{{ booking.user.firstname }}</li>
-                <li class="list-group-item text-black-50">{{ booking.user.age }} ans</li>
-                <li class="list-group-item text-black-50">{{ booking.user.email }}</li>
-                <li class="list-group-item text-black-50">{{ booking.user.telephone}}</li>
+                <li class="list-group-item text-black-50">{{ consultation.user.lastname }}</li>
+                <li class="list-group-item text-black-50">{{ consultation.user.firstname }}</li>
+                <li class="list-group-item text-black-50">{{ consultation.user.age }} ans</li>
+                <li class="list-group-item text-black-50">{{ consultation.user.email }}</li>
+                <li class="list-group-item text-black-50">{{ consultation.user.telephone}}</li>
             </ul>
-
         </div><!--FIN CARD-->
-
-
     </div> <!--FIN CONTENT CENTER-->
+    <div class="mt-1 d-flex justify-content-center" >
+        <a class="btn btn-info text-white" href="{{ path('app_admin_admin_index')}}" style="width: 18rem;">Retour</a>
+    </div>
 
+    <div class=" mt-3 d-flex justify-content-center">
+        <div class="card shadow" style="width: 18rem; ">
+            <div class="card-header text-black-50 font-weight-bold text-center">
+                Information patient
+            </div>
+            <ul class="list-group list-group-flush">
+
+                <li class="list-group-item text-black-50">{{ consultation.paiement}}</li>
+                <li class="list-group-item text-black-50">{{ consultation.diagnostic}} ans</li>
+                <li class="list-group-item text-black-50">{{ consultation.traitement }}</li>
+                <li class="list-group-item text-black-50">{{ consultation.commentaire}}</li>
+            </ul>
+        </div><!--FIN CARD-->
+    </div> <!--FIN CONTENT CENTER-->
     <div class="mt-1 d-flex justify-content-center" >
         <a class="btn btn-info text-white" href="{{ path('app_admin_admin_index')}}" style="width: 18rem;">Retour</a>
     </div>
