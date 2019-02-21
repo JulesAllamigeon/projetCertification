@@ -4,8 +4,19 @@
 
 html, body{
     font-family: 'Roboto', sans-serif;
+    background-color: #a4d4e3;
+    color:white;
 }
+/******BTN SIGN*******/
+.sign {
+    border-radius: 35px;
+}
+/******END BTN SIGN*******/
 
+.chiffre{
+    font-size:50px;
+    text-shadow: 0 0 0.2em black;
+}
 
 h5{
     color:black;
@@ -14,6 +25,15 @@ small{
     color:black;
 }
 
+/******OPACITY TEXT CAROUSSEL******/
+.opacity{
+    opacity: 0.8;
+}
+/******FIN TEXT CAROUSSEL******/
+
+.text-desc{
+    font-size: 0.9em;
+}
 
 .svg{
     width: 55px;
@@ -21,7 +41,8 @@ small{
 
 div .couleurbleu
 {
-    background-color:var(--bleu) ;
+    background-color:var(--bleu);
+    color: #eaeaea;
 }
 
 /******MAP CONTACT*******/
@@ -77,8 +98,18 @@ body {
     height: 60px;
     background-color: #f5f5f5;
 }
+.copy-footer{
+    font-size: 0.8em;
+}
 /*******FIN FOOTER STICKY*****/
 
+/*******CARD NOSPATIENTS *****/
+.img-thumbnail {
+    background-color: #a4d4e3;
+}
+
+
+/**********FIN CARD************/
 
 
 

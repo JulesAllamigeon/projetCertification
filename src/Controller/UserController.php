@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\UserEditType;
 use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserController extends AbstractController
 {
     /**
-     * @Route("/profil/{firstname}-{lastname}")
+     * @Route("/{firstname}-{lastname}")
      */
     public function index(User $user)
     {
@@ -34,15 +35,14 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/profil/{firstname}-{lastname}/modification")
+     * @Route("/{firstname}-{lastname}/modification")
      */
     public function edit(Request $request, User $user)
     {
         $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository(User::class, $user);
 
 
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserEditType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
@@ -54,8 +54,6 @@ class UserController extends AbstractController
 
                 // message de confirmation
                 $this->addFlash('success', "La modification est enregistré");
-                // redirection vers la liste
-                return $this->redirectToRoute('app_admin_article_index');
             } else {
                 $this->addFlash('error', 'Le formulaire contient des erreurs');
             }
