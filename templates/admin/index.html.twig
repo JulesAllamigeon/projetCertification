@@ -2,11 +2,16 @@
 
 {% block body %}
 
-    <h1 class="mt-3">Gestion de mes RDV</h1>
+
+        <h1 class="text-center mb-5 mt-5">Gestion de mes RDV</h1>
 
 
-    <div class="col-12">
-        <table class="table table-responsive table-striped">
+
+
+
+
+
+        <table class="table table-responsive table-striped ml-5">
             <thead class="thead-dark">
             <tr>
                 <th scope="col">Patient</th>
@@ -20,6 +25,8 @@
                 <th scope="col">Médicaments</th>
                 <th scope="col">Allérgies</th>
                 <th scope="col">Sommeil</th>
+                <th scope="col">Statut</th>
+                <th scope="col"></th>
                 <th scope="col"></th>
                 <th scope="col"></th>
 
@@ -28,8 +35,8 @@
             <tbody>
 
             {% for consultation in consultations %}
+                {% if consultation.status == 'EN_ATTENTE' %}
                 <tr>
-
                     <td>{{ consultation.user}}</td>
                     <td class="text-center" >{{ consultation.id }}</td>
                     <td>{{ consultation.date | date('d/m/Y H:m') }}</td>
@@ -41,15 +48,17 @@
                     <td>{{ consultation.medication }}</td>
                     <td>{{ consultation.allergies }}</td>
                     <td>{{ consultation.sleepSchedule }}/10</td>
+                    <td>{{ consultation.status }}</td>
                     <td><a class="btn btn-info" href="{{ path('app_admin_admin_update', {"id" : consultation.id}) }}">Modifier</a></td>
                     <td><a class="btn btn-info" href="{{ path('app_admin_admin_view', {"id" : consultation.id}) }}">Voir</a></td>
-
+                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_manage', {"id" : consultation.id}) }}">Séance</a></td>
 
                 </tr>
-
+                {% endif %}
             {% endfor %}
             </tbody>
         </table>
-    </div>
+
+
 
 {% endblock %}

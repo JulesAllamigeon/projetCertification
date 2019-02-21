@@ -23,7 +23,7 @@ class BookingController extends AbstractController
 
         if($form->isSubmitted()){
             if($form->isValid()) {
-                // represente le user qui s'est connecté
+                // represente le user qui s'est inscrit ou connecté
                 $booking->setUser($this->getUser());
 
 

@@ -27,7 +27,7 @@
                                 <a class="nav-link" href="{{ path('app_admin_admin_allmypatients') }}">Gestion des Patients</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_admin_admin_managemyconsultation') }}">Historique des Consultations</a>
+                                <a class="nav-link" href="#">Historique des Consultations</a>
                             </li>
                         </ul>
                     </div>
@@ -36,7 +36,6 @@
         {% endif %}
             <!--LEFT PART-->
             <nav class="navbar navbar-expand-md navbar-light bg-light">
-                <a class="navbar-brand" href="{{ path('app_index_index') }}"><img src="{{ asset('images/logo.png') }}" height="30px" alt="logoSite"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -59,48 +58,42 @@
                             <a class="nav-link" href="{{ path('app_index_apropos') }}">A Propos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('app_index_contact') }}>Contact</a>
+                            <a class="nav-link" href={{ path('app_index_nospatients') }}>Nos patients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('app_index_nospatients') }}>Nos patients</a>
+                            <a class="nav-link" href={{ path('app_index_contact') }}>Contact</a>
                         </li>
                     </ul>
                 </div>
-                        <nav class="navbar navbar-expand navbar-light bg-light">
-                            <div class="collapse navbar-collapse" id="navbarNav">
-                                <ul class="navbar-nav">
-                            {% if app.user is null%}
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ path('app_security_register')}}">Inscription</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ path('app_security_login') }}">Connexion</a>
-                                </li>
-                            {% else %}
-                                <li class="nav-item">
-                                    <a class="nav-link" href={{ path('app_user_index', {'firstname': app.user.firstname, 'lastname': app.user.lastname}) }}>{{ app.user }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ path('app_security_logout') }}">Déconnexion</a>
-                                </li>
-                            {% endif %}
-                                </ul>
-                            </div>
-                        </nav>
+                <div>
 
+                    <nav class="navbar navbar-expand navbar-light bg-light">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                        {% if app.user is null%}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_security_register')}}">Inscription</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_security_login') }}">Connexion</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link">{{ app.user }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('app_security_logout') }}">Déconnexion</a>
+                            </li>
+                        {% endif %}
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="d-none d-sm-block">
+                    <a class="navbar-brand" href="{{ path('app_index_index') }}"><img src="{{ asset('images/logo.png') }}" height="30px" alt="logoSite"></a>
+                </div>
 
             </nav>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -124,22 +117,33 @@
             {% block body %}
 
             {% endblock %}
+        <footer>
+            <div class="container-fluid text-light bg-dark py-3">
+                <div class="row">
+
+                    <div class="col-6 col-md-6">
+                        <div class="text-uppercase pl-5">nos partenaires :</div>
+                        <div>
+                            <a href="https://www.chiropraxie.com" target="_blank">
+                                <img src="{{ asset('images/logo-afc.png') }}" alt="logo association française de chiropraxie" height="90px" class="pl-5">
+                            </a>
+                        </div>
+                    </div>
 
 
+                    <div class="col-6 col-md-6">
+                        <div class="copyright">
+                            <p class="font-weight-light">Copyright &copy 2019 Projet JACL Webforce3 Tous droits réservés</p>
+                        </div>
+                    </div>
 
-
-
+                </div>
+            </div>
+        </footer>
 
 
             {% block javascripts %}
-                {#
-                <script src="{{ asset('lib/bootstrap.min.js') }}" ></script>
-                <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-                <script type="text/javascript" src="{{ asset('script/jquery-ui-timepicker-addon.js') }}"></script>
-                <script src="{{ asset('script/jquery-ui-timepicker-fr.js') }}"></script>
-                <script>$('.datepicker').datetimepicker();</script>
-                #}
+
                 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
                 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
