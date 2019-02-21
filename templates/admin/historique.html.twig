@@ -3,7 +3,7 @@
 {% block body %}
 
 
-        <h1 class="text-center mb-5 mt-5">Gestion de mes RDV</h1>
+        <h1 class="text-center mb-5 mt-5">Historique de mes consultations</h1>
     <div class="container mb-3">
         <form>
             <div class="container d-flex justify-content-center">
@@ -20,21 +20,20 @@
                 </div>
             </div>
             <div class="justify-content-center d-flex ">
-                <button type="submit" class="btn btn-primary w-10"
+                <button type="submit" class="btn btn-primary w-10 mr-3"
                 >Filtrer</button>
-                <button type="submit" class="btn btn-primary w-10 ml-3"
+                <button type="submit" class="btn btn-primary w-10"
                 ><a href="{{ path('app_admin_admin_historiqueconsultation') }}"></a>Retour</button>
             </div>
 
         </form>
     </div>
 
-
         <table class="table table-responsive table-striped pl-5">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Patient</th>
                 <th scope="col">Id_RDV</th>
+                <th scope="col">Patient</th>
                 <th scope="col" >Date</th>
                 <th scope="col">Motif</th>
                 <th scope="col">Profession</th>
@@ -53,26 +52,24 @@
             </thead>
             <tbody>
 
-            {% for booking in bookings %}
-                {% if booking.status == 'EN_ATTENTE' %}
+            {% for consultation in consultations %}
+                {% if consultation.booking.status == 'PAYEE' %}
                 <tr>
-                    <td>{{ booking.user}}</td>
-                    <td class="text-center" >{{ booking.id }}</td>
-                    <td>{{ booking.date | date('d/m/Y H:m') }}</td>
-                    <td>{{ booking.motive }}</td>
-                    <td>{{ booking.job }}</td>
-                    <td>{{ booking.sports }}</td>
-                    <td>{{ booking.smoker }}</td>
-                    <td>{{ booking.medicalPast }}</td>
-                    <td>{{ booking.medication }}</td>
-                    <td>{{ booking.allergies }}</td>
-                    <td>{{ booking.sleepSchedule }}/10</td>
-                    <td>{{ booking.status }}</td>
-                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_update', {"id" : booking.id}) }}">Modifier</a></td>
-                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_viewprofil', {"id" : booking.user.id})
-                        }}">Voir</a></td>
-                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_manage', {"id" : booking.id})
-                        }}">Séance</a></td>
+                    <td class="text-center" >{{ consultation.booking.id }}</td>
+                    <td>{{ consultation.user}}</td>
+                    <td>{{ consultation.date | date('d/m/Y H:m') }}</td>
+                    <td>{{ consultation.booking.job }}</td>
+                    <td>{{ consultation.booking.motive }}</td>
+                    <td>{{ consultation.booking.sports }}</td>
+                    <td>{{ consultation.booking.smoker }}</td>
+                    <td>{{ consultation.booking.medicalPast }}</td>
+                    <td>{{ consultation.booking.medication }}</td>
+                    <td>{{ consultation.booking.allergies }}</td>
+                    <td>{{ consultation.booking.sleepSchedule }}/10</td>
+                    <td>{{ consultation.booking.status }}</td>
+                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_view', {"id" : consultation.id}) }}">Voir</a></td>
+
+
 
                 </tr>
                 {% endif %}
