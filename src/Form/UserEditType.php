@@ -13,7 +13,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 
-class UserType extends AbstractType
+class UserEditType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -47,43 +47,12 @@ class UserType extends AbstractType
                 ]
             )
             ->add(
-                'sexe',
-                ChoiceType::class,
-                [
-                    'choices' => [
-                        'Homme' => 'm',
-                        'Femme' => 'f'
-                    ],
-                    'expanded' => true
-
-                ]
-            )
-            ->add(
                 'telephone',
                 TextType::class,
                 [
                     'label' => 'Téléphone'
                 ]
                 )
-            ->add(
-                'plainPassword',
-                // 2 champs qui doivent avoir la meme valeur
-                RepeatedType::class,
-                [
-                    // ... de type password
-                    'type' => PasswordType::class,
-                    // options du 1er champs
-                    'first_options' => [
-                        'label' => 'Mot de passe'
-                    ],
-                    // options du 2eme champs
-                    'second_options' => [
-                        'label' => 'Confirmation du mot de passe'
-                    ],
-                    // message si les 2 champs n'ont pas la meme valeur
-                    'invalid_message' => 'La confirmation ne correspond pas au mot de passe'
-                ]
-            )
             ->add('adress',
                 TextType::class,
                 [
@@ -97,7 +66,6 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'validation_groups' => ['create']
         ]);
     }
 }

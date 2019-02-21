@@ -20,23 +20,19 @@ class ContactType extends AbstractType
                 'firstname',
                 TextType::class,
                 [
-                    'label' => 'Prénom'
-                ],
-                [
-                    'constraints' =>
-                        new NotBlank()
-                    /* Problème de vérification, à gérer */
+                    'label' => 'Prénom',
+                    'constraints' => [
+                        new NotBlank(['message' => 'Prénom obligatoire'])
+                    ]
                 ]
             )
             ->add(
                 'lastname',
                 TextType::class,
                 [
-                    'label' => 'Nom'
-                ],
-                [
+                    'label' => 'Nom',
                     'constraints' => [
-                        NotBlank::class
+                        new NotBlank(['message' => 'Nom obligatoire'])
                     ]
                 ]
             )
@@ -44,13 +40,10 @@ class ContactType extends AbstractType
                 'email',
                 EmailType::class,
                 [
-                    'label' => 'Adresse Mail'
-                ],
-                [
+                    'label' => 'Adresse Mail',
                     'constraints' => [
-                        NotBlank::class
+                        new NotBlank(['message' => 'Email obligatoire'])
                     ]
-
                 ]
             )
 
@@ -58,11 +51,9 @@ class ContactType extends AbstractType
                 'message',
                 TextareaType::class,
                 [
-                    'label' => 'Message'
-                ],
-                [
+                    'label' => 'Message',
                     'constraints' => [
-                        NotBlank::class
+                        new NotBlank(['message' => 'Message obligatoire'])
                     ]
                 ]
             )

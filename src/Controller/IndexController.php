@@ -33,8 +33,8 @@ class IndexController extends AbstractController
 
                 $message = (new \Swift_Message('Mail de contact'))
                     //->setFrom($data['email'])
-                    ->setFrom('alfredcyril91@gmail.com')
-                    ->setTo('alfredcyril91@gmail.com')
+                    ->setFrom('emaildusite@jacl.com')
+                    ->setTo('possesseurdusite@jacl.com')
                     ->setBody(
                         $this->renderView(
                             'index/mail.html.twig',

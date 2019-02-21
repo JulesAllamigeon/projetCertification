@@ -74,7 +74,7 @@ class User implements UserInterface
     private $role = 'ROLE_USER';
     /**
      * @var string
-     * @Assert\NotBlank(message="Le mot de passe est obligatoire")
+     * @Assert\NotBlank(message="Le mot de passe est obligatoire", groups={"create"})
      */
     private $plainPassword;
 
