@@ -30,16 +30,35 @@ class AdminController extends AbstractController
      *
      * @Route("/")
      */
-    public function index()
+    public function index(Request $request)
     {
+        $filters = $request->query->all();
 
         $repository = $this->getDoctrine()->getRepository(Booking::class);
-        $consultations = $repository->findBy([], [
-            'date' => 'ASC',
-        ]);
+        $bookings = $repository->findByDate($filters);
 
         return $this->render('admin/index.html.twig', [
-            'consultations' => $consultations
+            'bookings' => $bookings
+
+        ]);
+    }
+
+    /**
+     * @Route("/historique")
+     */
+    public function historiqueConsultation(Request $request)
+    {
+        $filters = $request->query->all();
+
+        $repository = $this->getDoctrine()->getRepository(Consultation::class);
+        $consultations = $repository->findByDate($filters);
+
+       // $repository2 = $this->getDoctrine()->getRepository(Consultation::class);
+        //$consultation = $repository2->find($id);
+
+        return $this->render('admin/historique.html.twig', [
+            'consultations' => $consultations,
+
 
         ]);
     }
@@ -81,20 +100,38 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/patient/{id}")
+     * @Route("/detail/{id}")
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function view($id)
     {
-        $em = $this->getDoctrine()->getRepository(Booking::class);
-        $booking = $em->find($id);
+        $repo = $this->getDoctrine()->getRepository(Consultation::class);
+        $consultation = $repo->find($id);
 
 
         return $this->render('admin/view.html.twig', [
-            'booking' => $booking
+            'consultation' => $consultation
         ]);
     }
+
+    /**
+     * @Route("/detail/profil/{id}")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function viewProfil($id)
+    {
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $user = $repository->find($id);
+
+
+        return $this->render('admin/viewProfil.html.twig', [
+                'user' => $user
+        ]);
+    }
+
+
 
     /**
      * @Route("/patients")
@@ -131,7 +168,7 @@ class AdminController extends AbstractController
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
 
-                $consultation->setUser($booking->getUser());
+                $consultation->setBooking($booking);
                 $consultation->setDate($booking->getDate());
 
                 $booking->setStatus('PAYEE');

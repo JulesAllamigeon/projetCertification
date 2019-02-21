@@ -20,7 +20,7 @@ class ConsultationType extends AbstractType
                 'diagnostic',
                 TextareaType::class,
                 [
-                    'label' => 'Diagnostic de la séance'
+                    'label' => 'Diagnostique de la scéance'
                 ]
             )
             ->add(
@@ -37,14 +37,14 @@ class ConsultationType extends AbstractType
                     'label' => 'Commentaire'
                 ]
             )
-            ->add('paiement',
+            -> add('paiement',
                 ChoiceType::class,
                 [
                     'choices' => [
                         'Choisissez un mode de paiement' => null,
-                        'Chèque' => 'Chèques',
-                        'Espèces' => 'Espèces',
-                        'Carte Bleue' => 'Carte Bleue'
+                        'Chèques' => 'Chèques',
+                        'Carte Bleue' => 'Carte Bleue',
+                        'Espèces' => 'Espèces'
                     ]
                 ]
                 )

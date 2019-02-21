@@ -23,18 +23,35 @@ class BookingRepository extends ServiceEntityRepository
     //  * @return Booking[] Returns an array of Booking objects
     //  */
     /*
-    public function findByExampleField($value)
+     * */
+
+    public function findByDate($filters)
     {
-        return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('b.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $qb = $this->createQueryBuilder('b');
+        $qb->orderBy('b.date', 'ASC');
+
+
+
+        if (!empty($filters['date_de_debut'])) {
+            $date = \DateTime::createFromFormat('d/m/Y H:i', $filters['date_de_debut']);
+            $qb
+                ->andWhere('b.date >= :dateDebut')
+                ->setParameter(':dateDebut', $date->format('Y-m-d'))
+            ;
+        }
+
+        if (!empty($filters['date_de_fin'])) {
+            $date = \DateTime::createFromFormat('d/m/Y H:i', $filters['date_de_fin']);
+            $qb
+                ->andWhere('b.date <= :dateFin')
+                ->setParameter(':dateFin', $date->format('Y-m-d'))
+            ;
+        }
+
+        return $qb->getQuery()->getResult();
+
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?Booking

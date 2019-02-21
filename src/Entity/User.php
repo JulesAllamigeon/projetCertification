@@ -88,6 +88,16 @@ class User implements UserInterface
      * @Assert\NotBlank(message="L'adresse est obligatoire")
      */
     private $adress;
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="La ville est obligatoire")
+     */
+    private $city;
+    /**
+     * @ORM\Column(type="integer", length=5)
+     *@Assert\NotBlank(message="Le code postal est obligatoire")
+     */
+    private $zipcode;
 
     public function __construct()
     {
@@ -212,12 +222,57 @@ class User implements UserInterface
         $this->plainPassword = $plainPassword;
         return $this;
     }
+    public function getAdress(): ?string
+    {
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): self
+    {
+        $this->adress = $adress;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param mixed $city
+     * @return User
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getZipcode()
+    {
+        return $this->zipcode;
+    }
+
+    /**
+     * @param mixed $zipcode
+     */
+    public function setZipcode($zipcode): void
+    {
+        $this->zipcode = $zipcode;
+    }
+
 
     public function __toString()
     {
         return $this->firstname. ' ' . $this->lastname;
     }
-
     /**
      * @return Collection|Booking[]
      */
@@ -301,15 +356,5 @@ class User implements UserInterface
         // TODO: Implement eraseCredentials() method.
     }
 
-    public function getAdress(): ?string
-    {
-        return $this->adress;
-    }
 
-    public function setAdress(string $adress): self
-    {
-        $this->adress = $adress;
-
-        return $this;
-    }
 }
