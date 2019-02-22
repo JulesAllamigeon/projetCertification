@@ -2,12 +2,12 @@
 <html lang="fr">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}PROJET JACL{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('lib/bootstrap.min.css') }}">
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
-            <link rel="stylesheet" href="js/jquery-ui-timepicker-addon.css">
+            <link rel="stylesheet" href="{{ asset('style/style.css') }}">
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('style/style.css') }}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -44,26 +44,26 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ path('app_index_index') }}">Accueil<span class="sr-only">
+                            <a class="nav-link bordure" href="{{ path('app_index_index') }}">Accueil<span class="sr-only">
                                     (current)</span></a>
                         </li>
                         {% if app.user is not null %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_booking_takemyrdv') }}">Rendez-Vous</a>
+                            <a class="nav-link bordure" href="{{ path('app_booking_takemyrdv') }}">Rendez-Vous</a>
                         </li>
                             {% else %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ path('app_security_login') }}">Rendez-Vous</a>
+                                    <a class="nav-link bordure" href="{{ path('app_security_login') }}">Rendez-Vous</a>
                                 </li>
                         {% endif %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ path('app_index_apropos') }}">A Propos</a>
+                            <a class="nav-link bordure" href="{{ path('app_index_apropos') }}">A Propos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('app_index_nospatients') }}>Nos patients</a>
+                            <a class="nav-link bordure" href={{ path('app_index_nospatients') }}>Nos patients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href={{ path('app_index_contact') }}>Contact</a>
+                            <a class="nav-link bordure" href={{ path('app_index_contact') }}>Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -153,7 +153,28 @@
                 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
                 <script type="text/javascript" src="{{ asset('script/jquery-ui-timepicker-addon.js') }}"></script>
                 <script src="{{ asset('script/jquery-ui-timepicker-fr.js') }}"></script>
+                <script>
+                    /*var d = new Date();
+                    var n = d.getHours();*/
+                    var disableddates = ["01-01", "01-05", "08-05", "14-07", "15-08", "11-11", "01-11", "25-12", "31-12"];
+
+
+                    function DisableSpecificDates(date) {
+                        var string = jQuery.datepicker.formatDate('dd-mm', date);
+                        return [disableddates.indexOf(string) == -1];
+                    }
+
+                    $('.datepicker').datetimepicker({
+                        hourMin: 9,
+                        hourMax: 18,
+                        minDate: 1,
+                        beforeShowDay: DisableSpecificDates
+
+
+                    });
+                </script>
                 <script>$('.datepicker').datetimepicker();</script>
+                <script src="{{ asset('script/counter.js') }}"></script>
             {% endblock %}
         </body>
 
