@@ -8,45 +8,42 @@
         <form>
             <div class="container d-flex justify-content-center">
 
-                <div class="form-group">
-                    <label >Date de début</label>
-                    <input type="text" class="form-control datepicker" name="date_de_debut">
-                </div>
-            </div>
-            <div class="container d-flex justify-content-center">
-                <div class="form-group">
-                    <label>Date de fin</label>
-                    <input type="text" class="form-control datepicker"name="date_de_fin">
-                </div>
-            </div>
-            <div class="justify-content-center d-flex ">
-                <button type="submit" class="btn btn-primary w-10 mr-3"
-                >Filtrer</button>
-                <button type="submit" class="btn btn-primary w-10"
-                ><a href="{{ path('app_admin_admin_historiqueconsultation') }}"></a>Retour</button>
-            </div>
-
-        </form>
+                        <div class="form-group mr-5">
+                            <label >Du : </label>
+                            <input type="text" class="form-control filterpicker" name="date_de_debut">
+                        </div>
+                        <div class="form-group ml-3">
+                            <label>Au : </label>
+                            <input type="text" class="form-control filterpicker" name="date_de_fin">
+                        </div>
+                        <div class="form-group ml-3 myFilterButton">
+                            <button type="submit" class="btn btn-primary w-10"
+                            >Filtrer</button>
+                            <button type="submit" class="btn btn-primary w-10 ml-3"
+                            ><a href="{{ path('app_admin_admin_index') }}"></a>Annuler</button>
+                        </div>
+                    </div>
+                </form>
+            </blockquote>
+        </div>
     </div>
-
-        <table class="table table-responsive table-striped pl-5">
+        <table class="table table-responsive table-striped table-hover pl-5 myHistoricTable">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Id_RDV</th>
-                <th scope="col">Patient</th>
-                <th scope="col" >Date</th>
-                <th scope="col">Motif</th>
-                <th scope="col">Profession</th>
-                <th scope="col">Sportif</th>
-                <th scope="col">Fumeur</th>
-                <th scope="col">Antécédents</th>
-                <th scope="col">Médicaments</th>
-                <th scope="col">Allérgies</th>
-                <th scope="col">Sommeil</th>
-                <th scope="col">Statut</th>
+                <th scope="col" class="text-center">Id_RDV</th>
+                <th scope="col" class="text-center">Patient</th>
+                <th scope="col" class="text-center">Date</th>
+                <th scope="col" class="text-center">Motif</th>
+                <th scope="col" class="text-center">Profession</th>
+                <th scope="col" class="text-center">Sportif</th>
+                <th scope="col" class="text-center">Fumeur</th>
+                <th scope="col" class="text-center">Antécédents</th>
+                <th scope="col" class="text-center">Médicaments</th>
+                <th scope="col" class="text-center">Allérgies</th>
+                <th scope="col" class="text-center">Sommeil</th>
+                <th scope="col" class="text-center">Statut</th>
                 <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+
 
             </tr>
             </thead>
@@ -56,18 +53,19 @@
                 {% if consultation.booking.status == 'PAYEE' %}
                 <tr>
                     <td class="text-center" >{{ consultation.booking.id }}</td>
-                    <td>{{ consultation.user}}</td>
-                    <td>{{ consultation.date | date('d/m/Y H:m') }}</td>
-                    <td>{{ consultation.booking.job }}</td>
-                    <td>{{ consultation.booking.motive }}</td>
-                    <td>{{ consultation.booking.sports }}</td>
-                    <td>{{ consultation.booking.smoker }}</td>
-                    <td>{{ consultation.booking.medicalPast }}</td>
-                    <td>{{ consultation.booking.medication }}</td>
-                    <td>{{ consultation.booking.allergies }}</td>
-                    <td>{{ consultation.booking.sleepSchedule }}/10</td>
-                    <td>{{ consultation.booking.status }}</td>
-                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_view', {"id" : consultation.id}) }}">Voir</a></td>
+                    <td class="text-center">{{ consultation.user}}</td>
+                    <td class="text-center">{{ consultation.date | date('d/m/Y H:m') }}</td>
+                    <td class="text-center">{{ consultation.booking.job }}</td>
+                    <td class="text-center">{{ consultation.booking.motive }}</td>
+                    <td class="text-center">{{ consultation.booking.sports }}</td>
+                    <td class="text-center">{{ consultation.booking.smoker }}</td>
+                    <td class="text-center">{{ consultation.booking.medicalPast }}</td>
+                    <td class="text-center">{{ consultation.booking.medication }}</td>
+                    <td class="text-center">{{ consultation.booking.allergies }}</td>
+                    <td class="text-center">{{ consultation.booking.sleepSchedule }}/10</td>
+                    <td class="text-center">{{ consultation.booking.status }}</td>
+                    <td ><a class="btn btn-info" href="{{ path('app_admin_admin_view', {"id" : consultation.id})
+                        }}">Consulter</a></td>
 
 
 
@@ -78,5 +76,8 @@
         </table>
 
 
-
+{% endblock %}
+{% block javascripts %}
+    {{ parent()  }}
+    <script>$('.filterpicker').datetimepicker({minDateTime: null})</script>
 {% endblock %}

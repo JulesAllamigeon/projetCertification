@@ -75,11 +75,7 @@ class Booking
 
     /**
      *
-<<<<<<< HEAD
      * @ORM\Column(type="string", length=50)
-=======
-     * @ORM\Column(type="string",length=50)
->>>>>>> master
      * @Assert\NotBlank(message="ce champs est obligatoire")
      */
     private $allergies;
