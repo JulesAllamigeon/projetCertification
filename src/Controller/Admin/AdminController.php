@@ -34,11 +34,14 @@ class AdminController extends AbstractController
     {
         $filters = $request->query->all();
 
+        $date = new \DateTime();
+
         $repository = $this->getDoctrine()->getRepository(Booking::class);
         $bookings = $repository->findByDate($filters);
 
         return $this->render('admin/index.html.twig', [
-            'bookings' => $bookings
+            'bookings' => $bookings,
+            'date' => $date
 
         ]);
     }
@@ -50,6 +53,8 @@ class AdminController extends AbstractController
     {
         $filters = $request->query->all();
 
+        $date = new \DateTime();
+
         $repository = $this->getDoctrine()->getRepository(Consultation::class);
         $consultations = $repository->findByDate($filters);
 
@@ -58,8 +63,7 @@ class AdminController extends AbstractController
 
         return $this->render('admin/historique.html.twig', [
             'consultations' => $consultations,
-
-
+            'date' => $date
         ]);
     }
 
@@ -94,7 +98,8 @@ class AdminController extends AbstractController
         }
 
         return $this->render('admin/update.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'booking' => $booking
         ]);
 
     }

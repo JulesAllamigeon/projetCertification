@@ -57,14 +57,14 @@ class BookingType extends AbstractType
                 'job',
                 TextType::class,
                 [
-                    'label' => 'Profession '
+                    'label' => 'Profession :'
                 ]
             )
             ->add(
                 'sports',
                 ChoiceType::class,
                 [
-                    'label' => 'Pratique du sport ',
+                    'label' => 'Pratique du sport :',
                     'choices' => [
                         'occasionnelle' => 'occasionnelle',
                         'régulière'    => 'réguliere',
@@ -76,7 +76,7 @@ class BookingType extends AbstractType
                 'medical_past',
                 TextType::class,
                 [
-                    'label' => 'Antécédents médicaux ',
+                    'label' => 'Antécédents médicaux :',
                     'attr' => array(
                         'placeholder' => 'exemple : fracture.. intervention chirurgicale.. '
                     )
@@ -119,7 +119,7 @@ class BookingType extends AbstractType
                 'sleep_schedule',
                 RangeType::class,
                 [
-                    'label' => 'Qualité de votre sommeil ',
+                    'label' => 'Qualité de votre sommeil sur 10 : ',
 
                     'attr' => [
                         'min' => 0,
