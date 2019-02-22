@@ -4,8 +4,9 @@
 
 html, body{
     font-family: 'Roboto', sans-serif;
-    background-color: #a4d4e3;
-    color:white;
+    background-image: url(../images/marble.jpg);
+    background-repeat: repeat-x;
+    width: 100%;
 }
 /******BTN SIGN*******/
 .sign {
