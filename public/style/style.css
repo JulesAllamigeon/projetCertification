@@ -8,15 +8,33 @@ html, body{
     background-repeat: repeat-x;
     width: 100%;
 }
+
+
 /******BTN SIGN*******/
 .sign {
     border-radius: 35px;
 }
 /******END BTN SIGN*******/
+span.pseudo{
+    text-shadow: 0 0 0.2em black;
+}
+
+
+/****** HOVER BORDURES NAVBAR *****/
+.bordure{
+    border-bottom: solid transparent 1.5px;
+}
+.bordure:hover{
+    border-bottom: solid #7e7e7e 1.5px;
+    transition-duration: 850ms;
+}
+/****** END HOVER BORDURES NAVBAR *****/
+
 
 .chiffre{
     font-size:50px;
     text-shadow: 0 0 0.2em black;
+    color: white;
 }
 
 h5{
@@ -63,6 +81,13 @@ height:0;
 }
 /********FIN MAP CONTACT********/
 
+.separator{
+    color: white !important;
+    background: white !important;
+}
+.spacing{
+    letter-spacing: 1.5px;
+}
 
 /***Datepicker***/
 .ui-datepicker-current {
@@ -87,7 +112,7 @@ input[type="date"]::-webkit-input-placeholder{
     padding-left: 35px;
 }
 .myHistoricTable {
-    padding-left: 285px !important;
+    padding-left: 235px !important;
 }
 .myReturnButton {
     margin-right: 445px;
@@ -96,7 +121,10 @@ input[type="date"]::-webkit-input-placeholder{
     margin-top: 122px !important;
 }
 .consultationCard {
-    margin-top: 142px !important;
+    margin-top: 44px !important;
+}
+.myRDVtable {
+    padding-left: 8rem !important;
 }
 /*****  fin datepicker ******/
 
