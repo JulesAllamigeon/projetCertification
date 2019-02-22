@@ -35,7 +35,7 @@
     </div>
 
 
-        <table class="table table-responsive table-striped pl-5 table-hover">
+        <table class="table table-responsive myRDVtable pl-5 table-hover">
             <thead class="thead-dark">
             <tr>
                 <th scope="col" class="text-center">Patient</th>
@@ -75,7 +75,7 @@
                     <td class="text-center">{{ booking.status }}</td>
                     <td><a class="btn btn-info" href="{{ path('app_admin_admin_update', {"id" : booking.id}) }}">Modifier</a></td>
                     <td><a class="btn btn-info" href="{{ path('app_admin_admin_viewprofil', {"id" : booking.user.id})
-                        }}">Voir</a></td>
+                        }}">Profil</a></td>
                     <td><a class="btn btn-info" href="{{ path('app_admin_admin_manage', {"id" : booking.id})
                         }}">Séance</a></td>
 

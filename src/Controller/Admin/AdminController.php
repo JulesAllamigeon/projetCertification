@@ -181,8 +181,8 @@ class AdminController extends AbstractController
                 $em->persist($consultation);
                 $em->flush();
 
-                $this->addFlash('success', 'Votre RDV a bien été validé');
-                return $this->redirectToRoute("app_index_index");
+                $this->addFlash('success', 'Votre séance a bien été validée');
+                return $this->redirectToRoute("app_admin_admin_historiqueconsultation");
             }
             else{
                 $this->addFlash('error', 'Votre validation contient des erreurs');
