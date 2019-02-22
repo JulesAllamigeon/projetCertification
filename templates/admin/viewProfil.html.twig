@@ -1,29 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="col-md-6 mb-5 container">
-    <div class=" ml-5 mt-3 d-flex justify-content-center">
-        <div class="card shadow" style="width: 18rem; ">
-            <div class="card-header text-black-50 font-weight-bold text-center">
-                <h3>Information patient</h3>
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item text-black-50"><strong>Nom </strong> : {{ user.lastname }}</li>
-                <li class="list-group-item text-black-50"><strong>Prénom </strong> : {{ user.firstname }}</li>
-                <li class="list-group-item text-black-50"><strong>Age </strong> : {{ user.age }} ans</li>
-                <li class="list-group-item text-black-50"><strong>Email </strong> : {{ user.email }}</li>
-                <li class="list-group-item text-black-50"><strong>Adresse </strong> : {{ user.adress}}</li>
-                <li class="list-group-item text-black-50"><strong>Ville </strong> : {{ user.city | capitalize}}</li>
-                <li class="list-group-item text-black-50"><strong>Code postal </strong> : {{ user
-                    .zipcode}}</li>
-                <li class="list-group-item text-black-50"><strong>Téléphone </strong> : {{ user.telephone}}</li>
-            </ul>
-            <div class="mt-1 d-flex justify-content-center" >
-                <a class="btn btn-info text-white" href="{{ path('app_admin_admin_index')}}" style="width: 18rem;">Retour</a>
-            </div>
-        </div><!--FIN CARD-->
-    </div><!-- .justify-content-center--->
-</div><!--- .col-md-6 mb-5-->
+<div class="container d-flex">
+    <div class="col-md-6 mb-5 ">
+        <div class=" ml-5 mt-3 d-flex justify-content-center">
+            <div class="card shadow" style="width: 18rem; ">
+                <div class="card-header text-black-50 font-weight-bold text-center">
+                    <h3>Information patient</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-black-50"><strong>Nom </strong> : {{ user.lastname }}</li>
+                    <li class="list-group-item text-black-50"><strong>Prénom </strong> : {{ user.firstname }}</li>
+                    <li class="list-group-item text-black-50"><strong>Age </strong> : {{ user.age }} ans</li>
+                    <li class="list-group-item text-black-50"><strong>Email </strong> : {{ user.email }}</li>
+                    <li class="list-group-item text-black-50"><strong>Adresse </strong> : {{ user.adress}}</li>
+                    <li class="list-group-item text-black-50"><strong>Ville </strong> : {{ user.city | capitalize}}</li>
+                    <li class="list-group-item text-black-50"><strong>Code postal </strong> : {{ user
+                        .zipcode}}</li>
+                    <li class="list-group-item text-black-50"><strong>Téléphone </strong> : {{ user.telephone}}</li>
+                </ul>
+                <div class="mt-1 d-flex justify-content-center" >
+                    <a class="btn btn-info text-white" href="{{ path('app_admin_admin_index')}}" style="width: 18rem;">Retour</a>
+                </div>
+            </div><!--FIN CARD-->
+        </div><!-- .justify-content-center--->
+    </div><!--- .col-md-6 mb-5-->
+    <div class="col-md-4">
+        <img class="myUserLogo" src="{{ asset('images/user.svg') }}" alt="profil">
+    </div>
+</div>
+
 
 
 

@@ -3,16 +3,16 @@
 {% block body %}
 
 
-    <h1 class="text-center mb-5 mt-5">Gestion de mes rendez-vous</h1>
+    <h1 class="text-center mb-5 mt-5">GESTION DE MES SEANCES</h1>
     <div class="card container p-0 mb-5">
-        <div class="card-header bg-info">
+        <div class="card-header myFilterCardHeader">
             <h3 class="text-center">Bonjour {{ app.user }}, nous sommes le {{ date | date('d/m/Y')}}</h3>
         </div>
-        <div class="card-body bg-secondary">
+        <div class="card-body myFilterCardBody">
             <blockquote class="blockquote mb-0">
                 <form>
                     <h3 class="mt-2 mb-4 text-center"><ins></ins></h3>
-                    <div class="container d-flex justify-content-center">
+                    <div class="container d-flex justify-content-center ">
 
                         <div class="form-group mr-5">
                             <label >Du : </label>
@@ -35,7 +35,7 @@
     </div>
 
 
-        <table class="table table-responsive myRDVtable pl-5 table-hover">
+        <table class="table table-responsive myRDVtable table-hover">
             <thead class="thead-dark">
             <tr>
                 <th scope="col" class="text-center">Patient</th>
@@ -76,7 +76,7 @@
                     <td><a class="btn btn-info" href="{{ path('app_admin_admin_update', {"id" : booking.id}) }}">Modifier</a></td>
                     <td><a class="btn btn-info" href="{{ path('app_admin_admin_viewprofil', {"id" : booking.user.id})
                         }}">Profil</a></td>
-                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_manage', {"id" : booking.id})
+                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_validateconsultation', {"id" : booking.id})
                         }}">Séance</a></td>
 
                 </tr>

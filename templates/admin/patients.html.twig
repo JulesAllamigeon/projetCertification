@@ -4,49 +4,50 @@
 
     <div class="container mb-5">
         <h1 class="mt-3 mb-5">Gestion des patients</h1>
-
-
-        <table class="table table-hover">
-            <thead class="thead-dark">
-            <tr>
-                <th scope="col" class="text-center">Id Patient</th>
-                <th scope="col" class="text-center">Nom</th>
-                <th scope="col" class="text-center">Prénom</th>
-                <th scope="col" class="text-center">Sexe</th>
-                <th scope="col" class="text-center">Age</th>
-                <th scope="col" class="text-center">Adresse</th>
-                <th scope="col" class="text-center">Ville</th>
-                <th scope="col" class="text-center">Code postal</th>
-                <th scope="col" class="text-center">Email</th>
-                <th scope="col" class="text-center">Téléphone</th>
-
-            </tr>
-            </thead>
-            <tbody>
-
-            {% for user in users %}
-                <tr>
-                    {% if user.role != 'ROLE_ADMIN' %}
-
-                        <td class="text-center">{{ user.id}}</td>
-                        <td class="text-center">{{ user.lastname | capitalize}}</td>
-                        <td class="text-center">{{ user.firstname | capitalize}}</td>
-                        <td class="text-center">{{ user.sexe | capitalize}}</td>
-                        <td class="text-center">{{ user.age}} ans</td>
-                        <td class="text-center">{{ user.adress}}</td>
-                        <td class="text-center">{{ user.city}}</td>
-                        <td class="text-center">{{ user.zipcode}}</td>
-                        <td class="text-center">{{ user.email }}</td>
-                        <td class="text-center">{{ user.telephone}}</td>
-
-
-                    {% endif %}
-                </tr>
-
-            {% endfor %}
-            </tbody>
-        </table>
     </div>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="text-center">Id Patient</th>
+            <th scope="col" class="text-center">Nom</th>
+            <th scope="col" class="text-center">Prénom</th>
+            <th scope="col" class="text-center">Sexe</th>
+            <th scope="col" class="text-center">Age</th>
+            <th scope="col" class="text-center">Adresse</th>
+            <th scope="col" class="text-center">Ville</th>
+            <th scope="col" class="text-center">Code postal</th>
+            <th scope="col" class="text-center">Email</th>
+            <th scope="col" class="text-center">Téléphone</th>
+            <th scope="col" class="text-center" width="100px"></th>
+
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for user in users %}
+            <tr>
+                {% if user.role != 'ROLE_ADMIN' %}
+
+                    <td class="text-center align-middle">{{ user.id}}</td>
+                    <td class="text-center align-middle">{{ user.lastname | capitalize}}</td>
+                    <td class="text-center align-middle">{{ user.firstname | capitalize}}</td>
+                    <td class="text-center align-middle">{{ user.sexe | capitalize}}</td>
+                    <td class="text-center align-middle">{{ user.age}} ans</td>
+                    <td class="text-center align-middle">{{ user.adress}}</td>
+                    <td class="text-center align-middle">{{ user.city}}</td>
+                    <td class="text-center align-middle">{{ user.zipcode}}</td>
+                    <td class="text-center align-middle">{{ user.email }}</td>
+                    <td class="text-center align-middle">{{ user.telephone}}</td>
+                    <td><a class="btn btn-info" href="{{ path('app_admin_admin_viewprofil', {"id" : user.id})
+                        }}">Profil</a></td>
+
+
+                {% endif %}
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
 
 
 

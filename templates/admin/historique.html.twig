@@ -3,12 +3,12 @@
 {% block body %}
 
 
-        <h1 class="text-center mb-5 mt-5">Historique de mes consultations</h1>
+        <h1 class="text-center mb-5 mt-5">HISTORIQUE DE MES CONSULTATIONS</h1>
     <div class="card container p-0 mb-5">
-        <div class="card-header bg-info">
+        <div class="card-header myFilterCardHeader">
             <h3 class="text-center">Bonjour {{ app.user }}, nous sommes le {{ date | date('d/m/Y')}}</h3>
         </div>
-        <div class="card-body bg-secondary">
+        <div class="card-body myFilterCardBody">
             <blockquote class="blockquote mb-0">
                 <form>
                     <h3 class="mt-2 mb-4 text-center"><ins></ins></h3>
@@ -33,7 +33,7 @@
             </blockquote>
         </div>
     </div>
-        <table class="table table-responsive table-hover pl-5 myHistoricTable">
+        <table class="table table-responsive table-hover myHistoricTable">
             <thead class="thead-dark">
             <tr>
                 <th scope="col" class="text-center">Id_RDV</th>
@@ -70,7 +70,7 @@
                     <td class="text-center">{{ consultation.booking.allergies }}</td>
                     <td class="text-center">{{ consultation.booking.sleepSchedule }}/10</td>
                     <td class="text-center">{{ consultation.booking.status }}</td>
-                    <td ><a class="btn btn-info" href="{{ path('app_admin_admin_view', {"id" : consultation.id})
+                    <td ><a class="btn btn-info" href="{{ path('app_admin_admin_detailconsultation', {"id" : consultation.id})
                         }}">Consulter</a></td>
 
 

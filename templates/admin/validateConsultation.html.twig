@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2 class=" text-center mt-3 mb-3">VALIDER MES CONSULTATIONS</h2>
+    <div class="container d-flex">
+        <div class="col-md-6">
+            {{ form_start(form) }}
+            {{ form_row(form.paiement) }}
+            {{ form_row(form.diagnostic) }}
+            {{ form_row(form.traitement) }}
+            {{ form_row(form.commentaire)}}
+
+                <button type="submit" class="btn btn-outline-primary" style="width: 100%">Valider</button>
+
+            {{ form_end(form) }}
+        </div>
+
+
+        <div class=" col-md-6 mt-3 d-flex justify-content-center">
+            <div class="card shadow" style="width: 28rem; ">
+                <div class="card-header text-black-50 font-weight-bold text-center">
+                    <h3>Séance du  {{ booking.date | date('d/m/Y') }} à {{ booking.date | date('H:i') }} pour {{ booking.user.firstname | capitalize }} {{ booking.user.lastname | capitalize }}</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-black-50"><strong>Motif  </strong> : {{ booking.motive | capitalize}}</li>
+                    <li class="list-group-item text-black-50"><strong>Profession</strong> : {{ booking.job | capitalize}}</li>
+                    <li class="list-group-item text-black-50"><strong>Fumeur </strong> : {{ booking.smoker | capitalize}}
+                    </li>
+                    <li class="list-group-item text-black-50"><strong>Antécédents</strong> : {{ booking.medicalPast | capitalize
+                        }}</li>
+                    <li class="list-group-item text-black-50"><strong>Pratique sportive </strong> : {{ booking
+                        .sports | capitalize}}</li>
+                    <li class="list-group-item text-black-50"><strong>Prise quotidienne de médicaments</strong> :
+                        {{
+                        booking.medication | capitalize}}</li>
+                    <li class="list-group-item text-black-50"><strong>Allergies  </strong> : {{ booking.allergies | capitalize
+                        }}</li>
+                    <li class="list-group-item text-black-50"><strong>Qualité de sommeil</strong> : {{ booking.sleepSchedule
+                        }}/10</li>
+                </ul>
+                <div class="mt-1 d-flex justify-content-center" >
+                    <a class="btn btn-info text-white" href="{{ path('app_admin_admin_index')}}" style="width: 100%;">Retour</a>
+                </div>
+            </div><!--FIN CARD-->
+        </div> <!--FIN CONTENT CENTER-->
+        <img src="{{ asset('images/checked.svg') }}" alt="checked">
+    </div><!---- .container d-flex ---->
+
+
+
+
+{% endblock %}

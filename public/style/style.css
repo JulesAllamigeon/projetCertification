@@ -3,7 +3,7 @@
 }
 
 html, body{
-    font-family: 'Roboto', sans-serif;
+    font-family: Nunito,sans-serif;
     background-image: url(../images/marble.jpg);
     background-repeat: repeat-x;
     width: 100%;
@@ -112,7 +112,7 @@ input[type="date"]::-webkit-input-placeholder{
     padding-left: 35px;
 }
 .myHistoricTable {
-    padding-left: 235px !important;
+    padding-left: 145px !important;
 }
 .myReturnButton {
     margin-right: 445px;
@@ -124,7 +124,24 @@ input[type="date"]::-webkit-input-placeholder{
     margin-top: 44px !important;
 }
 .myRDVtable {
-    padding-left: 8rem !important;
+    padding-left: 5rem !important;
+}
+.myUpdateLogo {
+    margin-top: 300px;
+}
+.myUserLogo {
+    margin-top: 100px;
+}
+.myFilterCardBody {
+    background-color: #ECF0F1 !important;
+}
+.myFilterCardHeader {
+    background-color: #34495E  ;
+    color: white;
+
+}
+.myAdminNav{
+    background-color:#34495E  ;
 }
 /*****  fin datepicker ******/
 

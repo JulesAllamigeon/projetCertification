@@ -109,13 +109,13 @@ class AdminController extends AbstractController
      * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function view($id)
+    public function detailConsultation($id)
     {
         $repo = $this->getDoctrine()->getRepository(Consultation::class);
         $consultation = $repo->find($id);
 
 
-        return $this->render('admin/view.html.twig', [
+        return $this->render('admin/detailConsultation.html.twig', [
             'consultation' => $consultation
         ]);
     }
@@ -158,7 +158,7 @@ class AdminController extends AbstractController
      * @Route("/validation/{id}")
      *
      */
-    public function manage(Request $request, Booking $booking, $id)
+    public function validateConsultation(Request $request, Booking $booking, $id)
     {
         $consultation = new Consultation();
 
@@ -188,7 +188,7 @@ class AdminController extends AbstractController
                 $this->addFlash('error', 'Votre validation contient des erreurs');
             }
         }
-        return $this->render('admin/manage.html.twig', [
+        return $this->render('admin/validateConsultation.html.twig', [
             'form' => $form->createView(),
             'booking' => $bookings
         ]);
