@@ -8,15 +8,30 @@ html, body{
     background-repeat: repeat-x;
     width: 100%;
 }
+
+
 /******BTN SIGN*******/
 .sign {
     border-radius: 35px;
 }
 /******END BTN SIGN*******/
 
+
+/****** HOVER BORDURES NAVBAR *****/
+.bordure{
+    border-bottom: solid transparent 1.5px;
+}
+.bordure:hover{
+    border-bottom: solid #7e7e7e 1.5px;
+    transition-duration: 850ms;
+}
+/****** END HOVER BORDURES NAVBAR *****/
+
+
 .chiffre{
     font-size:50px;
     text-shadow: 0 0 0.2em black;
+    color: white;
 }
 
 h5{
@@ -63,6 +78,13 @@ height:0;
 }
 /********FIN MAP CONTACT********/
 
+.separator{
+    color: white !important;
+    background: white !important;
+}
+.spacing{
+    letter-spacing: 1.5px;
+}
 
 /***Datepicker***/
 .ui-datepicker-current {
