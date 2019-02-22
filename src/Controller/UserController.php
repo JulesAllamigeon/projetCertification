@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Booking;
 use App\Entity\User;
 use App\Form\UserEditType;
 use App\Form\UserType;
@@ -14,7 +15,7 @@ class UserController extends AbstractController
     /**
      * @Route("/{firstname}-{lastname}")
      */
-    public function index(User $user)
+    public function index(User $user, Booking $booking)
     {
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository(User::class, $user);
@@ -25,13 +26,16 @@ class UserController extends AbstractController
             ]
         );
         dump($profile);
-        $appointment = $profile->getBookings();
-        dump($appointment);
+
+        $repositoryBokkings = $em->getRepository(Booking::class, $booking);
+
+        $appointment = $repositoryBokkings->findBy([], [$user->getId()]);
 
 
         return $this->render('user/index.html.twig',
             [
-                'profile' => $profile
+                'profile' => $profile,
+                'appointment' => $appointment
             ]
         );
     }
