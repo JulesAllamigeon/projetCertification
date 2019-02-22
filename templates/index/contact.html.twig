@@ -7,7 +7,7 @@
 
 
     <div class="container">
-        <h2 class="mt-4 mb-5 ">Contactez nous pour plus d'informations</h2>
+        <h2 class="mt-4 mb-5 text-uppercase text-center">Contactez nous pour plus d'informations</h2>
 
     </div>
 
@@ -19,10 +19,15 @@
 
 
             {{ form_start(form) }}
+
                 {{ form_row(form.firstname) }}
+
                 {{ form_row(form.lastname) }}
+
                 {{ form_row(form.email) }}
+
                 {{ form_row(form.message) }}
+
             {{ form_end(form) }}
 
                 <div class="align-self-center mb-3">
