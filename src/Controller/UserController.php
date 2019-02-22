@@ -25,6 +25,8 @@ class UserController extends AbstractController
             ]
         );
         dump($profile);
+        $appointment = $profile->getBookings();
+        dump($appointment);
 
 
         return $this->render('user/index.html.twig',
