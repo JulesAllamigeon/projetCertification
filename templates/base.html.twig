@@ -7,7 +7,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('lib/bootstrap.min.css') }}">
             <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/flick/jquery-ui.css">
-            <link rel="stylesheet" href="js/jquery-ui-timepicker-addon.css">
+            <link rel="stylesheet" href="{{ asset('style/style.css') }}">
             <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
             <link rel="stylesheet" href="{{ asset('style/style.css') }}">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -153,7 +153,26 @@
                 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
                 <script type="text/javascript" src="{{ asset('script/jquery-ui-timepicker-addon.js') }}"></script>
                 <script src="{{ asset('script/jquery-ui-timepicker-fr.js') }}"></script>
-                <script>$('.datepicker').datetimepicker();</script>
+                <script>
+                    /*var d = new Date();
+                    var n = d.getHours();*/
+                    var disableddates = ["01-01", "01-05", "08-05", "14-07", "15-08", "11-11", "01-11", "25-12", "31-12"];
+
+
+                    function DisableSpecificDates(date) {
+                        var string = jQuery.datepicker.formatDate('dd-mm', date);
+                        return [disableddates.indexOf(string) == -1];
+                    }
+
+                    $('.datepicker').datetimepicker({
+                        hourMin: 9,
+                        hourMax: 18,
+                        minDate: 1,
+                        beforeShowDay: DisableSpecificDates
+
+
+                    });
+                </script>
             {% endblock %}
         </body>
 
