@@ -21,22 +21,24 @@ class BookingController extends AbstractController
         $form = $this->createForm(BookingType::class, $booking);
         $form->handleRequest($request);
 
-        if($form->isSubmitted()){
-            if($form->isValid()) {
-                // represente le user qui s'est inscrit ou connecté
-                $booking->setUser($this->getUser());
+
+        if ($form->isSubmitted()) {
+                if ($form->isValid()) {
+                    // represente le user qui s'est inscrit ou connecté
+                    $booking->setUser($this->getUser());
 
 
-                $em->persist($booking);
-                $em->flush();
+                    $em->persist($booking);
+                    $em->flush();
 
-                $this->addFlash('success', 'Votre RDV a bien été enregistré');
-                return $this->redirectToRoute("app_index_index");
+                    $this->addFlash('success', 'Votre RDV a bien été enregistré');
+                    return $this->redirectToRoute("app_index_index");
+                } else {
+                    $this->addFlash('error', 'Votre formulaire contient des erreurs');
+                }
             }
-            else {
-                $this->addFlash('error', 'Votre formulaire contient des erreurs');
-            }
-        }
+
+
 
         return $this->render('booking/index.html.twig', [
                 'form' => $form->createView(),

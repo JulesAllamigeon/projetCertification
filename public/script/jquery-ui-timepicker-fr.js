@@ -16,7 +16,14 @@
 		timeSuffix: '',
 		amNames: ['AM', 'A'],
 		pmNames: ['PM', 'P'],
-		isRTL: false
+		isRTL: false,
+		monthNames: ['Janvier','Fevrier','Mars','Avril','Mai','Juin',
+			'Juillet','Aout','Septembre','Octobre','Novembre','Decembre'],
+		monthNamesShort: ['Jan','Fev','Mar','Avr','Mai','Jun',
+			'Jul','Aou','Sep','Oct','Nov','Dec'],
+		dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+		dayNamesShort: ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'],
+		dayNamesMin: ['Di','Lu','Ma','Me','Je','Ve','Sa']
 	};
 	$.timepicker.setDefaults($.timepicker.regional['fr']);
 })(jQuery);

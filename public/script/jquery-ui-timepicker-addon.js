@@ -87,7 +87,7 @@
 			secondMax: 59,
 			millisecMax: 999,
 			microsecMax: 999,
-			minDateTime: null,
+			minDateTime: 0,
 			maxDateTime: null,
 			maxTime: null,
 			minTime: null,

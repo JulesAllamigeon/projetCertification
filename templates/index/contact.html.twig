@@ -11,7 +11,6 @@
 
     </div>
 
-    {{ form_start(form) }}
 
     <div class="container">
         <div class="row">
@@ -19,14 +18,12 @@
             <div class="col-md-6 mt-5">
 
 
+            {{ form_start(form) }}
                 {{ form_row(form.firstname) }}
-
                 {{ form_row(form.lastname) }}
-
                 {{ form_row(form.email) }}
-
-
                 {{ form_row(form.message) }}
+            {{ form_end(form) }}
 
                 <div class="align-self-center mb-3">
                     <button type="submit" class="btn btn-primary container-fluid">
@@ -73,7 +70,6 @@
         </div><!--ENDROW-->
 
 
-        {{ form_end(form) }}
 
     </div><!--END CONTAINER FORM-->
 
