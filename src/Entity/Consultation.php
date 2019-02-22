@@ -46,7 +46,8 @@ class Consultation
      */
     private $commentaire;
     /**
-     * @ORM\Column(type="string", length=150)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez selectionner un type de paiement")
      */
     private $paiement;
 

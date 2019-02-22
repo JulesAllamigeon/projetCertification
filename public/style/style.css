@@ -4,8 +4,9 @@
 
 html, body{
     font-family: 'Roboto', sans-serif;
-    background-color: #a4d4e3;
-    color:white;
+    background-image: url(../images/marble.jpg);
+    background-repeat: repeat-x;
+    width: 100%;
 }
 /******BTN SIGN*******/
 .sign {
@@ -80,6 +81,22 @@ input[type="date"]::-webkit-input-placeholder{
 .unstyled::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
+}
+.myFilterButton {
+    padding-top: 30px;
+    padding-left: 35px;
+}
+.myHistoricTable {
+    padding-left: 285px !important;
+}
+.myReturnButton {
+    margin-right: 445px;
+}
+.profilCard {
+    margin-top: 122px !important;
+}
+.consultationCard {
+    margin-top: 142px !important;
 }
 /*****  fin datepicker ******/
 

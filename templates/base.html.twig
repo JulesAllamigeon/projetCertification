@@ -25,7 +25,7 @@
                                 <a class="nav-link" href="{{ path('app_admin_admin_index') }}">Gestion des RDV</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_admin_admin_allmypatients') }}">Gestion des Patients</a>
+                                <a class="nav-link" href="{{ path('app_admin_admin_allmypatients') }}">Mes Patients</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_admin_admin_historiqueconsultation')
@@ -37,7 +37,7 @@
             </nav>
         {% endif %}
             <!--LEFT PART-->
-            <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <nav class="navbar navbar-expand-md navbar-light bg-transparent">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -69,7 +69,7 @@
                 </div>
                 <div>
 
-                    <nav class="navbar navbar-expand navbar-light bg-light">
+                    <nav class="navbar navbar-expand navbar-light bg-transparent">
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                         {% if app.user is null%}
