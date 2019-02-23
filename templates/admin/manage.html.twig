@@ -6,7 +6,7 @@
     <div class="container d-flex">
 
 
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3">
             {{ form_start(form) }}
 
             {{ form_row(form.paiement) }}
@@ -16,13 +16,13 @@
 
 
             <div class="text-right">
-                <button type="submit" class="btn btn-outline-primary">Valider</button>
+                <button type="submit" class="btn btn-outline-info">Valider</button>
             </div>
             {{ form_end(form) }}
 
         </div>
-        <div class=" ml-5 mt-3 d-flex justify-content-center">
-            <div class="card shadow" style="width: 18rem; ">
+        <div class=" ml-5 mt-3 d-flex justify-content-center ">
+            <div class="card shadow  " style="width: 18rem; ">
                 <div class="card-header text-black-50 font-weight-bold text-center">
                     <h3>Séance de {{ booking.user }}</h3>
                 </div>

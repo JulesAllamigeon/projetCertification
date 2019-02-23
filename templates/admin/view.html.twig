@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="d-flex  justify-content-center text-center">
-    <div class=" mt-3  justify-content-center text-left profilCard">
-        <div class="card shadow" style="width: 18rem; ">
+
+    <div class="container col-12 d-block d-md-flex justify-content-center ">
+        <div class="card shadow col-12 col-md-3 p-0 align-self-center"  >
             <div class="card-header text-black-50 font-weight-bold text-center">
                 Patient N°{{ consultation.user.id }}
             </div>
@@ -17,10 +17,12 @@
                     .telephone}}</li>
             </ul>
         </div><!--FIN CARD-->
-    </div> <!--FIN CONTENT CENTER-->
-    <img src="{{ asset('images/next.svg') }}" alt="fleche" class="ml-2 mr-2">
-    <div class=" mt-3  justify-content-center text-left">
-        <div class="card shadow" style="width: 18rem; ">
+
+    <div class="col-1 align-self-center">
+    <img src="{{ asset('images/next.svg') }}" alt="fleche" class="ml-2 mr-2 align-middle" >
+    </div>
+
+        <div class="card shadow col-12 col-md-3 p-0 align-self-center"  >
             <div class="card-header text-black-50 font-weight-bold text-center">
                 RDV N°{{ consultation.booking.id }}
             </div>
@@ -55,10 +57,12 @@
                     .booking.sleepSchedule }}</li>
             </ul>
         </div><!--FIN CARD-->
-    </div> <!--FIN CONTENT CENTER-->
-    <img src="{{ asset('images/next.svg') }}" alt="fleche" class="ml-2 mr-2">
-    <div class=" mt-3  justify-content-center text-left consultationCard">
-        <div class="card shadow" style="width: 18rem; ">
+
+    <div class="col-1 align-self-center">
+    <img src="{{ asset('images/next.svg') }}" alt="fleche" class="ml-2 mr-2" >
+    </div>
+
+        <div class="card shadow col-12 col-md-3 p-0 align-self-center"  >
             <div class="card-header text-black-50 font-weight-bold text-center">
                Séance N°{{ consultation.id }}
             </div>
@@ -73,12 +77,13 @@
                     .commentaire}}</li>
             </ul>
         </div><!--FIN CARD-->
-    </div> <!--FIN CONTENT CENTER-->
 
-</div>
-    <div class="text-center mt-5" >
+</div><!--FIN CONTAINER-->
+    <div class="text-center mt-5 col-12" >
         <a class="btn btn-info text-white" href="{{ path('app_admin_admin_historiqueconsultation')}}" style="width: 18rem;">Retour</a>
     </div>
+
+
 
 
 
