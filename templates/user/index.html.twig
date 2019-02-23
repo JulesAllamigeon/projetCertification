@@ -4,24 +4,39 @@
 
 {% block body %}
     <div class="container">
-        <div class="card mt-4 text-black-50" style="width: 18rem;">
-            <div class="card-header">Mon Profil :</div>
-            <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+            <div class="card mt-4 text-black-50" style="width: 18rem;">
+                <div class="card-header">Mon Profil :</div>
+                <div class="card-body">
 
-                <p class="card-text">Nom : {{ profile.lastname }}</p>
-                <p class="card-text">Prénom : {{ profile.firstname }}</p>
-                <p class="card-text">Age : {{ profile.age }}</p>
-                <p class="card-text">Email : {{ profile.email }}</p>
-                <p class="card-text">Téléphone : {{ profile.telephone }}</p>
+                    <p class="card-text">Nom : {{ profile.lastname }}</p>
+                    <p class="card-text">Prénom : {{ profile.firstname }}</p>
+                    <p class="card-text">Age : {{ profile.age }}</p>
+                    <p class="card-text">Email : {{ profile.email }}</p>
+                    <p class="card-text">Téléphone : {{ profile.telephone }}</p>
 
-                <a href="{{ path('app_user_edit', {'firstname': app.user.firstname, 'lastname': app.user.lastname}) }}" class="btn btn-outline-primary">Modifier</a>
-                <a href="{{ path('app_index_index') }}" class="btn btn-outline-primary ml-2">Retour Accueil</a>
+                    <a href="{{ path('app_user_edit', {'firstname': app.user.firstname, 'lastname': app.user.lastname}) }}" class="btn btn-outline-primary">Modifier</a>
+                    <a href="{{ path('app_index_index') }}" class="btn btn-outline-primary ml-2">Retour Accueil</a>
+                </div>
+            </div>
+
+            </div>
+            <div class="col-md-6">
+            <div class="card mt-4 text-black-50"  style="width: 18rem;">
+                <div class="card-header">Mes rendez-vous :</div>
+                <div class="card-body">
+                    <p class="card-text">Antécédents : {{ appointment.medicalPast }}</p>
+                    <p class="card-text">Allergies : {{ appointment.allergies }}</p>
+                    <p class="card-text">Profession : {{ appointment.job }}</p>
+                    <p class="card-text">Médication : {{ appointment.medication }}</p>
+                    <p class="card-text">Motif de rendez-vous : {{ appointment.motive }}</p>
+                    <p class="card-text">Fumeur : {{ appointment.smoker }}</p>
+                    <p class="card-text">Pratique du sport : {{ appointment.sports }}</p>
+                </div>
+            </div>
             </div>
         </div>
-
-
-
-
     </div>
 
 {% endblock %}
