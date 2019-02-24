@@ -13,6 +13,12 @@
                     }}</li>
                 <li class="list-group-item text-black-50"><strong>Age</strong> : {{ consultation.user.age }} ans</li>
                 <li class="list-group-item text-black-50"><strong>Email</strong> : {{ consultation.user.email }}</li>
+                <li class="list-group-item text-black-50"><strong>Adresse</strong> : {{ consultation.user
+                    .adress}}</li>
+                <li class="list-group-item text-black-50"><strong>Ville</strong> : {{ consultation.user
+                    .city}}</li>
+                <li class="list-group-item text-black-50"><strong>Code Postal</strong> : {{ consultation.user
+                    .zipcode}}</li>
                 <li class="list-group-item text-black-50"><strong>Téléphone</strong> : {{ consultation.user
                     .telephone}}</li>
             </ul>
@@ -24,13 +30,13 @@
 
         <div class="card shadow col-12 col-md-3 p-0 align-self-center"  >
             <div class="card-header text-black-50 font-weight-bold text-center">
-                RDV N°{{ consultation.booking.id }}
+                Séance N°{{ consultation.booking.id }}
             </div>
             <ul class="list-group list-group-flush">
 
                 <li class="list-group-item text-black-50"><strong>Date</strong> : {{ consultation.booking
                     .date| date('d/m/Y H:i')}}</li>
-                <li class="list-group-item text-black-50"><strong>Motif de consultation</strong> :{{ consultation
+                <li class="list-group-item text-black-50"><strong>Motif de consultation</strong> : {{ consultation
                     .booking
                     .motive
                     |capitalize}}</li>
@@ -45,7 +51,7 @@
                     capitalize
                     }}</li>
                 <li class="list-group-item text-black-50"><strong>Pratique du sport</strong> : {{ consultation
-                    .booking.sports}}</li>
+                    .booking.sports | capitalize}}</li>
                 <li class="list-group-item text-black-50"><strong>Prise de médicaments au quotidien</strong> : {{
                     consultation.booking.medication|
                     capitalize
@@ -57,34 +63,26 @@
                     .booking.sleepSchedule }}</li>
             </ul>
         </div><!--FIN CARD-->
-
-    <div class="col-1 align-self-center">
-    <img src="{{ asset('images/next.svg') }}" alt="fleche" class="ml-2 mr-2" >
-    </div>
+        <div class="col-1 align-self-center">
+            <img src="{{ asset('images/next.svg') }}" alt="fleche" class="ml-2 mr-2" >
+        </div>
 
         <div class="card shadow col-12 col-md-3 p-0 align-self-center"  >
             <div class="card-header text-black-50 font-weight-bold text-center">
-               Séance N°{{ consultation.id }}
+                Séance N°{{ consultation.id }}
             </div>
             <ul class="list-group list-group-flush">
-
                 <li class="list-group-item text-black-50"><strong>Règlement</strong> : {{ consultation.paiement}}</li>
-                <li class="list-group-item text-black-50"><strong>Diagnostic</strong> :{{ consultation.diagnostic}}
-                    </li>
-                <li class="list-group-item text-black-50"><strong>Traitement</strong> :{{ consultation.traitement
+                <li class="list-group-item text-black-50"><strong>Diagnostic</strong> : {{ consultation.diagnostic | capitalize}}
+                </li>
+                <li class="list-group-item text-black-50"><strong>Traitement</strong> : {{ consultation.traitement | capitalize
                     }}</li>
-                <li class="list-group-item text-black-50"><strong>Commentaire</strong> :{{ consultation
-                    .commentaire}}</li>
+                <li class="list-group-item text-black-50"><strong>Commentaire</strong> : {{ consultation
+                    .commentaire | capitalize}}</li>
             </ul>
         </div><!--FIN CARD-->
-
-</div><!--FIN CONTAINER-->
-    <div class="text-center mt-5 col-12" >
+    </div> <!--FIN CONTENT CENTER-->
+    <div class="text-center mt-5" >
         <a class="btn btn-info text-white" href="{{ path('app_admin_admin_historiqueconsultation')}}" style="width: 18rem;">Retour</a>
     </div>
-
-
-
-
-
 {% endblock %}

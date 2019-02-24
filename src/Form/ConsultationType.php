@@ -20,21 +20,21 @@ class ConsultationType extends AbstractType
                 'diagnostic',
                 TextareaType::class,
                 [
-                    'label' => 'Diagnostique de la scéance'
+                    'label' => 'Diagnostique de la séance :'
                 ]
             )
             ->add(
                 'traitement',
                 TextareaType::class,
                 [
-                    'label' => 'Traitement'
+                    'label' => 'Traitement :'
                 ]
             )
             ->add(
                 'commentaire',
                 TextareaType::class,
                 [
-                    'label' => 'Commentaire'
+                    'label' => 'Commentaire :'
                 ]
             )
             -> add('paiement',

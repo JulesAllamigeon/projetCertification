@@ -24,21 +24,21 @@ class UserType extends AbstractType
                 'lastname',
                 TextType::class,
                 [
-                    'label' => 'Nom'
+                    'label' => 'Nom :'
                 ]
             )
             ->add(
                 'firstname',
                 TextType::class,
                 [
-                    'label' => 'Prénom'
+                    'label' => 'Prénom :'
                 ]
             )
             ->add(
                 'age',
                 TextType::class,
                 [
-                    'label' => 'Age'
+                    'label' => 'Age :'
                 ]
             )
             ->add(
@@ -64,7 +64,7 @@ class UserType extends AbstractType
                 'telephone',
                 TextType::class,
                 [
-                    'label' => 'Téléphone'
+                    'label' => 'Téléphone :'
                 ]
                 )
             ->add(
@@ -76,11 +76,11 @@ class UserType extends AbstractType
                     'type' => PasswordType::class,
                     // options du 1er champs
                     'first_options' => [
-                        'label' => 'Mot de passe'
+                        'label' => 'Mot de passe :'
                     ],
                     // options du 2eme champs
                     'second_options' => [
-                        'label' => 'Confirmation du mot de passe'
+                        'label' => 'Confirmation du mot de passe :'
                     ],
                     // message si les 2 champs n'ont pas la meme valeur
                     'invalid_message' => 'La confirmation ne correspond pas au mot de passe'
@@ -89,19 +89,19 @@ class UserType extends AbstractType
             ->add('adress',
                 TextType::class,
                 [
-                    'label' => 'Adresse postale'
+                    'label' => 'Adresse postale :'
                 ]
                 )
             ->add('city',
                 TextType::class,
                 [
-                    'label' => 'Ville'
+                    'label' => 'Ville :'
                 ]
             )
             ->add('zipcode',
                 TextType::class,
                 [
-                    'label' => 'Code postal'
+                    'label' => 'Code postal :'
                 ]
                 )
         ;
