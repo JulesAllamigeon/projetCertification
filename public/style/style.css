@@ -5,9 +5,26 @@
 html, body{
     font-family: Nunito,sans-serif;
     background-image: url(../images/marble.jpg);
-    background-repeat: repeat-x;
-    width: 100%;
+    background-repeat: repeat;
+
+    background-size: 50% 50%;
+
 }
+/*******CARD FILTER PERSO ******/
+.card{
+    background-color: transparent;
+}
+.bg-card{
+    background-color: rgba(90, 98, 104, 0.31);
+}
+.bg-head{
+    background-color:#a4d4e3 ;
+}
+.myFilterButton {
+    padding-top: 30px;
+    padding-left: 35px;
+}
+/********FIN FILTER CARD*********/
 
 
 /******BTN SIGN*******/
@@ -17,6 +34,7 @@ html, body{
 /******END BTN SIGN*******/
 span.pseudo{
     text-shadow: 0 0 0.2em black;
+    color:white;
 }
 
 
@@ -107,10 +125,7 @@ input[type="date"]::-webkit-input-placeholder{
     display: none;
     -webkit-appearance: none;
 }
-.myFilterButton {
-    padding-top: 30px;
-    padding-left: 35px;
-}
+
 .myHistoricTable {
     padding-left: 145px !important;
 }
@@ -123,6 +138,7 @@ input[type="date"]::-webkit-input-placeholder{
 .consultationCard {
     margin-top: 85px !important;
 }
+<<<<<<< HEAD
 .myRDVtable {
     padding-left: 5rem !important;
 }
@@ -152,6 +168,9 @@ input[type="date"]::-webkit-input-placeholder{
     color: white;
     border-radius: 10px;
 }
+=======
+
+>>>>>>> master
 /*****  fin datepicker ******/
 
 /******* FOOTER STICKY ******/

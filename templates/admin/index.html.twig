@@ -3,39 +3,54 @@
 {% block body %}
 
 
+<<<<<<< HEAD
     <h1 class="text-center mb-5 mt-5 border myTitleSeance">GESTION DE MES SEANCES</h1>
     <div class="card container p-0 mb-5">
         <div class="card-header myFilterCardHeader">
             <h3 class="text-center">Bonjour {{ app.user }}, nous sommes le {{ date | date('d/m/Y')}}</h3>
         </div>
         <div class="card-body myFilterCardBody">
+=======
+    <h2 class="text-center mb-5 mt-5">Gestion de mes rendez-vous</h2>
+
+    <div class="card container p-0 mb-5">
+        <div class="card-header bg-head">
+            <h3 class="text-center mb-0">Bonjour {{ app.user }}, nous sommes le {{ date | date('d/m/Y')}}</h3>
+        </div>
+        <div class="card-body bg-card">
+>>>>>>> master
             <blockquote class="blockquote mb-0">
                 <form>
                     <h3 class="mt-2 mb-4 text-center"><ins></ins></h3>
                     <div class="container d-flex justify-content-center ">
 
-                        <div class="form-group mr-5">
-                            <label >Du : </label>
+                        <div class="form-group mr-3">
+                            <label >Du :</label>
                             <input type="text" class="form-control datepicker" name="date_de_debut">
                         </div>
                         <div class="form-group ml-3">
-                            <label>Au : </label>
+                            <label>Au :</label>
                             <input type="text" class="form-control datepicker" name="date_de_fin">
                         </div>
-                        <div class="form-group ml-3 myFilterButton">
-                            <button type="submit" class="btn btn-primary w-10"
-                            >Filtrer</button>
-                            <button type="submit" class="btn btn-primary w-10 ml-3"
-                            ><a href="{{ path('app_admin_admin_index') }}"></a>Annuler</button>
-                        </div>
+
+                    </div>
+                    <div class="form-group ml-3 mt-2 d-flex  justify-content-center ">
+                        <button type="submit" class="btn btn-info w-10 mr-3"
+                        >Filtrer</button>
+                        <button type="submit" class="btn btn-info w-10 ml-3"
+                        ><a href="{{ path('app_admin_admin_index') }}"></a>Annuler</button>
                     </div>
                 </form>
             </blockquote>
         </div>
-    </div>
+    </div><!--Fin card container-->
 
-
+<<<<<<< HEAD
         <table class="table table-responsive myRDVtable table-hover">
+=======
+    <div class="container">
+        <table class="table table-responsive myRDVtable  table-hover">
+>>>>>>> master
             <thead class="thead-dark">
             <tr>
                 <th scope="col" class="text-center">Patient</th>
@@ -84,6 +99,7 @@
             {% endfor %}
             </tbody>
         </table>
+    </div><!--Fin container-->
 
 
 

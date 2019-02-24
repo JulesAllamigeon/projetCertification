@@ -69,7 +69,7 @@
                 </div>
                 <div>
 
-                    <nav class="navbar navbar-expand navbar-light bg-transparent">
+                    <nav class="navbar navbar-expand navbar-light bg-transparent ">
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                         {% if app.user is null%}
@@ -121,20 +121,20 @@
             {% endblock %}
         <div id="footer">
         <footer class="footer footer-block">
-            <div class="container-fluid text-light bg-dark py-3">
+            <div class="container-fluid text-light bg-dark py-3 mt-3">
                 <div class="row">
 
-                    <div class="col-6 col-md-6">
-                        <div class="text-uppercase pl-5">nos partenaires</div>
+                    <div class="col-12 col-md-6 text-center text-md-left">
+                        <div class="text-uppercase pl-0 pl-md-5">nos partenaires</div>
                         <div>
                             <a href="https://www.chiropraxie.com" target="_blank">
-                                <img src="{{ asset('images/logo-afc.png') }}" alt="lien vers association française de chiropraxie" height="70px" class="pl-5">
+                                <img src="{{ asset('images/logo-afc.png') }}" alt="lien vers association française de chiropraxie" height="70px" class="pl-0 pl-md-5">
                             </a>
                         </div>
                     </div>
 
 
-                    <div class="col-6 col-md-6 copy-footer">
+                    <div class="col-12 col-md-6 copy-footer align-self-md-end text-md-right text-center">
                         <span>Copyright &copy 2019 Projet Webforce3 Tous droits réservés</span>
                     </div>
 
