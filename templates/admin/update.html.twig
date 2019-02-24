@@ -18,11 +18,9 @@
             {{ form_row(form.allergies) }}
             {{ form_row(form.sleep_schedule) }}
             <div class="text-right">
-                <button type="submit" class="btn btn-primary">Modifier</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%">Modifier</button>
                 {{ form_end(form) }}
-                <button type="reset" class="btn btn-primary"><a class="card-link" href="{{ path('app_admin_admin_index')}}"
-                           style="text-decoration: none; color:white;
-    ">Retour</a></button>
+
             </div>
         </div><!-- .col-md-6 -->
         <div class="align-middle ml-5 mr-2 ">
@@ -51,6 +49,9 @@
                         <li class="list-group-item text-black-50"><strong>Qualité de sommeil</strong> : {{ booking.sleepSchedule
                             }}/10</li>
                     </ul>
+                    <button type="reset" class="btn btn-primary"><a class="card-link" href="{{ path('app_admin_admin_index')}}"
+                                                                    style="text-decoration: none; color:white;
+    ">Retour</a></button>
             </div><!--FIN CARD-->
         </div> <!--FIN CONTENT CENTER-->
     </div><!----- .col-md-6 mt-3-->

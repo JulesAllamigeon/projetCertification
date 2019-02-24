@@ -118,10 +118,10 @@ input[type="date"]::-webkit-input-placeholder{
     margin-right: 445px;
 }
 .profilCard {
-    margin-top: 122px !important;
+    margin-top: 80px !important;
 }
 .consultationCard {
-    margin-top: 44px !important;
+    margin-top: 85px !important;
 }
 .myRDVtable {
     padding-left: 5rem !important;
@@ -142,6 +142,15 @@ input[type="date"]::-webkit-input-placeholder{
 }
 .myAdminNav{
     background-color:#34495E  ;
+}
+.myTitleSeance {
+    background-color:#34495E;
+    color: white;
+}
+.myTitleHistorique {
+    background-color:#34495E;
+    color: white;
+    border-radius: 10px;
 }
 /*****  fin datepicker ******/
 
