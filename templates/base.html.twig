@@ -156,36 +156,31 @@
                 <script>
                     /*var d = new Date();
                     var n = d.getHours();*/
-                    var disableddates = ["01-01", "01-05", "08-05", "14-07", "15-08", "11-11", "01-11", "25-12", "31-12"];
+                    var disableddates = [["01","01"], ["01","05"], ["08","05"], ["14","07"], ["15","08"], ["11","11"], ["01","11"], ["25","12"], ["31","12"]];
 
 
-                    function DisableSpecificDates(date) {
-                        var string = jQuery.datepicker.formatDate('dd-mm', date);
-                        return [disableddates.indexOf(string) == -1];
+                    function nationalDays(date) {
+                        for (i = 0; i < disableddates.length; i++) {
+                            if (date.getMonth() == disableddates[i][1] - 1 && date.getDate() == disableddates[i][0]) {
+                                return [false, ''];
+                            }
+                        } return [true, ''];
                     }
+
+                    function noWeekendsOrHolidays(date) { var noWeekend = $.datepicker.noWeekends(date); if (noWeekend[0]) { return nationalDays(date); } else { return noWeekend; } }
+
 
                     $('.datepicker').datetimepicker({
                         hourMin: 9,
                         hourMax: 18,
                         minDate: 1,
-                        beforeShowDay: // DisableSpecificDates  $.datepicker.noWeekends
-                        function(date){
-                        var string = jQuery.datepicker.formatDate('dd-mm-Y', date);
-                        var noWeekend = $.datepicker.noWeekends(date);
-                        if (noWeekend[0]) {
-                            return  [$.inArray(string, disableddates) == -1];
-                        }
-                        else
-                            return noWeekend;
-                    }
-
-
+                        firstDay: 1,
+                        beforeShowDay: noWeekendsOrHolidays
 
                     });
                 </script>
                 <script>$('.datepicker').datetimepicker();</script>
-                <script src="{{ asset('script/counter.js') }}"></script>
             {% endblock %}
-        </body>
+    </body>
 
 </html>
