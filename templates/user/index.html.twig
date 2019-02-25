@@ -6,7 +6,7 @@
     <div class="container">
 
         <div class="col-md-12 d-flex justify-content-center mt-4 mb-2">
-                <div class=" col-10 col-md-3 card shadow  text-black-50 p-0 " >
+                <div class=" col-10 col-md-4 card shadow  text-black-50 p-0 " >
                     <div class="card-header text-black-50 font-weight-bold text-center">
                         <h3>Mon Profil</h3>
                     </div>
@@ -28,16 +28,16 @@
 
             </div><!--Fin col-md-12-->
 
-        <div class="col-12 d-flex justify-content-center mb-2" >
-            <a href="{{ path('app_user_edit', {'firstname': app.user.firstname, 'lastname': app.user.lastname}) }}" class="btn btn-outline-info">Modifier</a>
+        <div class="col-12 d-flex justify-content-center mb-2 mb-md-4" >
+            <a href="{{ path('app_user_edit') }}" class="btn btn-outline-info">Modifier</a>
             <a href="{{ path('app_index_index') }}" class="btn btn-outline-info ml-2">Retour Accueil</a>
         </div>
 
 
-            <h3 class=" text-uppercase text-center myTitleSeance">Mes rendez-vous</h3>
+            <h3 class="text-uppercase text-center myTitleSeance">Mes rendez-vous</h3>
         
 
-        <div class="row">
+        <div class="row justify-content-around">
 
         {% for appointment in appointments %}
 
@@ -48,7 +48,7 @@
                         {{ appointment.date|date("d/m/Y H:i") }}
                     </div>
                     <div class="p-3">
-                        <p class="card-text"><strong>Antécédents :</strong>{{ appointment.medicalPast }}</p>
+                        <p class="card-text"><strong>Antécédents :</strong> {{ appointment.medicalPast }}</p>
                         <p class="card-text"><strong>Allergies :</strong> {{ appointment.allergies }}</p>
                         <p class="card-text"><strong>Profession :</strong> {{ appointment.job }}</p>
                         <p class="card-text"><strong>Médication :</strong> {{ appointment.medication }}</p>

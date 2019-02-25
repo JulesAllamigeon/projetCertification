@@ -59,6 +59,18 @@ class UserEditType extends AbstractType
                     'label' => 'Adresse postale :'
                 ]
                 )
+            ->add('city',
+                TextType::class,
+                [
+                    'label' => 'Ville :'
+                ]
+            )
+            ->add('zipcode',
+                TextType::class,
+                [
+                    'label' => 'Code postal :'
+                ]
+            )
             ->add(
                 'plainPassword',
                 // 2 champs qui doivent avoir la meme valeur

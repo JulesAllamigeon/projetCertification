@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% block title %}Connexion - JACL{% endblock %}
 {% block body %}
     <div class="container my-5">
 
@@ -15,8 +15,8 @@
                 <input type="password" name="_password" class="form-control">
             </div>
             <div class="text-right">
-                <button type="submit" class="btn btn-primary">Se Connecter</button>
-                <button type="submit" class="btn btn-primary"><a href="{{ path('app_security_register') }}" class="text-light">S'Inscrire</a></button>
+                <button type="submit" class="btn btn-info">Se Connecter</button>
+                <button type="submit" class="btn btn-info"><a href="{{ path('app_security_register') }}" class="text-light">S'Inscrire</a></button>
 
             </div>
 

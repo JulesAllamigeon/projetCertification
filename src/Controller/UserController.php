@@ -5,15 +5,15 @@ namespace App\Controller;
 use App\Entity\Booking;
 use App\Entity\User;
 use App\Form\UserEditType;
-use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
     /**
-     * @Route("/{firstname}-{lastname}")
+     * @Route("/utilisateur")
      */
     public function index()
     {
@@ -38,18 +38,24 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{firstname}-{lastname}/modification")
+     * @Route("/utilisateur/modification")
      */
-    public function edit(Request $request, User $user)
+    public function edit(Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
         $em = $this->getDoctrine()->getManager();
-
+        /** @var User $user */
+        $user = $this->getUser();
 
         $form = $this->createForm(UserEditType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
+
+                if (!empty($user->getPlainPassword())) {
+                    $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
+                    $user->setPassword($password);
+                }
 
 
                 $em->persist($user);

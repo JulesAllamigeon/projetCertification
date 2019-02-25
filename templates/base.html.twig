@@ -18,7 +18,7 @@
 
             <nav class=" navbar-dark navbar-expand-md  myAdminNav">
                 <div class="container navbar-nav ">
-                    <a class="navbar-brand text-center text-uppercase" href="">dashboard</a>
+                    <a class="navbar-brand text-center text-uppercase" href="{{ path('app_index_index') }}">dashboard</a>
                     <div class="navbar-collapse ml-3 ">
                         <ul class="navbar-nav  ">
                             <li class="nav-item">
@@ -81,10 +81,17 @@
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a href={{ path('app_user_index', {'firstname': app.user.firstname, 'lastname': app.user.lastname}) }} class="nav-link">{{ app.user }}</a>
+                                <a href="{{ path('app_user_index') }}" class=" nav-link">
+                                    {% if app.user.sexe == 'm' %}
+                                        <img class="mr-1" style="height:40px;" src="{{ asset('images/man.png') }}">
+                                    {% elseif app.user.sexe == 'f' %}
+                                        <img class="mr-1" style="height:40px;" src="{{ asset('images/girl.png') }}">
+                                    {% endif %}
+                                    {{ app.user }}
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <button class="btn btn-danger sign p-0"><a class="nav-link text-white" href="{{ path('app_security_logout') }}">Déconnexion</a></button>
+                            <li class="nav-item align-self-center">
+                                <button class="btn btn-danger align-self-center sign p-0"><a class="nav-link text-white" href="{{ path('app_security_logout') }}" >Déconnexion</a></button>
                             </li>
                         {% endif %}
                             </ul>
