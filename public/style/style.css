@@ -133,9 +133,9 @@ input[type="date"]::-webkit-input-placeholder{
     -webkit-appearance: none;
 }
 
-/*.myHistoricTable {
-    padding-left: 145px !important;
-}*/
+.myHistoricTable {
+    padding-left: 14rem !important;
+}
 .myReturnButton {
     margin-right: 445px;
 }
@@ -146,9 +146,9 @@ input[type="date"]::-webkit-input-placeholder{
     margin-top: 85px !important;
 }
 
-/*.myRDVtable {
+.myRDVtable {
     padding-left: 5rem !important;
-}*/
+}
 .myUpdateLogo {
     margin-top: 300px;
 }

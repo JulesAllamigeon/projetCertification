@@ -35,6 +35,10 @@
 
             <h3 class=" text-uppercase text-center myTitleSeance">Mes rendez-vous</h3>
 
+            </div>
+        </div>
+        {% for appointment in appointments %}
+            <h3 class="m-3">Mes rendez-vous</h3>
         <div class="row">
 
             {% for appointment in appointments %}
@@ -54,6 +58,8 @@
                         <p class="card-text"><strong>Pratique du sport :</strong> {{ appointment.sports }}</p>
                     </div>
                 </div>
+            {% else %}
+                <h3 class="text-center">Aucun rendez-vous de prévu</h3>
             </div>
 
             {% endfor %}
