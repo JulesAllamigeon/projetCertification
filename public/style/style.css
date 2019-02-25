@@ -13,6 +13,10 @@ html, body{
 /*******CARD FILTER PERSO ******/
 .card{
     background-color: transparent;
+    transition-duration: 0.7s;
+}
+.npt.card:hover {
+    background-color: white;
 }
 .bg-card{
     background-color: rgba(90, 98, 104, 0.31);
@@ -126,9 +130,9 @@ input[type="date"]::-webkit-input-placeholder{
     -webkit-appearance: none;
 }
 
-.myHistoricTable {
+/*.myHistoricTable {
     padding-left: 145px !important;
-}
+}*/
 .myReturnButton {
     margin-right: 445px;
 }
@@ -139,9 +143,9 @@ input[type="date"]::-webkit-input-placeholder{
     margin-top: 85px !important;
 }
 
-.myRDVtable {
+/*.myRDVtable {
     padding-left: 5rem !important;
-}
+}*/
 .myUpdateLogo {
     margin-top: 300px;
 }
@@ -160,13 +164,13 @@ input[type="date"]::-webkit-input-placeholder{
     background-color:#34495E  ;
 }
 .myTitleSeance {
-    background-color:#34495E;
+    background-color: rgba(52, 73, 94, 0.76);
     color: white;
 }
 .myTitleHistorique {
-    background-color:#34495E;
+    background-color:rgba(52, 73, 94, 0.76);
     color: white;
-    border-radius: 10px;
+
 }
 
 
