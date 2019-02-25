@@ -27,6 +27,7 @@
                 </div><!--FIN CARD -->
 
             </div><!--Fin col-md-12-->
+
         <div class="col-12 d-flex justify-content-center mb-2" >
             <a href="{{ path('app_user_edit', {'firstname': app.user.firstname, 'lastname': app.user.lastname}) }}" class="btn btn-outline-info">Modifier</a>
             <a href="{{ path('app_index_index') }}" class="btn btn-outline-info ml-2">Retour Accueil</a>
@@ -34,14 +35,12 @@
 
 
             <h3 class=" text-uppercase text-center myTitleSeance">Mes rendez-vous</h3>
+        
 
-            </div>
-        </div>
-        {% for appointment in appointments %}
-            <h3 class="m-3">Mes rendez-vous</h3>
         <div class="row">
 
-            {% for appointment in appointments %}
+        {% for appointment in appointments %}
+
 
             <div class="card mt-4 text-black-50 col-10 col-md-3 d-md-flex d-block p-0 ml-4 ml-md-0"  >
                 <div class="card-body p-0">
@@ -58,9 +57,10 @@
                         <p class="card-text"><strong>Pratique du sport :</strong> {{ appointment.sports }}</p>
                     </div>
                 </div>
+            </div>
             {% else %}
                 <h3 class="text-center">Aucun rendez-vous de prévu</h3>
-            </div>
+
 
             {% endfor %}
 
