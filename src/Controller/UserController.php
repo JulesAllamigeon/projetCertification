@@ -20,14 +20,16 @@ class UserController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository(User::class, $user);
 
-        $profile = $repository->findOneBy(
+        $profile = $repository->find(
             [
                 'id' => $user->getId()
             ]
         );
         dump($profile);
 
+
         $repositoryBookings = $em->getRepository(Booking::class, $booking);
+
 
         $appointments = $repositoryBookings->findBy(
             [

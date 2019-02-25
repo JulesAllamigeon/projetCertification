@@ -17,11 +17,11 @@
 
                         <div class="form-group mr-3">
                             <label >Du :</label>
-                            <input type="text" class="form-control datepicker" name="date_de_debut">
+                            <input type="text" class="form-control filterpicker" name="date_de_debut">
                         </div>
                         <div class="form-group ml-3">
                             <label>Au :</label>
-                            <input type="text" class="form-control datepicker" name="date_de_fin">
+                            <input type="text" class="form-control filterpicker" name="date_de_fin">
                         </div>
 
                     </div>
@@ -87,4 +87,8 @@
 
 
 
+{% endblock %}
+{% block javascripts %}
+    {{ parent()  }}
+    <script>$('.filterpicker').datetimepicker({minDateTime: null})</script>
 {% endblock %}
