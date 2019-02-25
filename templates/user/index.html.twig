@@ -37,7 +37,7 @@
             <div class="col-md-4">
             <div class="card mt-4 text-black-50"  style="width: 18rem;">
                 <div class="card-body">
-                    <div class="card-header text-center" style="background: transparent; font-size: 1.2em; font-weight: bold;">{{ appointment.date|date("d/m/Y") }}</div>
+                    <div class="card-header text-center" style="background: transparent; font-size: 1.2em; font-weight: bold;">{{ appointment.date|date("d/m/Y H:i") }}</div>
                     <p class="card-text">Antécédents : {{ appointment.medicalPast }}</p>
                     <p class="card-text">Allergies : {{ appointment.allergies }}</p>
                     <p class="card-text">Profession : {{ appointment.job }}</p>

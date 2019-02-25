@@ -27,11 +27,11 @@ class UserController extends AbstractController
         );
         dump($profile);
 
-        $repositoryBookings = $em->getRepository(Booking::class, $user);
+        $repositoryBookings = $em->getRepository(Booking::class, $booking);
 
         $appointments = $repositoryBookings->findBy(
             [
-                'id' => $user->getId(),
+                'user' => $booking->getId(),
                 'status' => 'EN_ATTENTE'
             ],
             ['date' => 'ASC']);
