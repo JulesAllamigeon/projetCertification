@@ -15,23 +15,15 @@ class UserController extends AbstractController
     /**
      * @Route("/{firstname}-{lastname}")
      */
-    public function index(User $user, Booking $booking)
+    public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository(User::class, $user);
-
-        $profile = $repository->findOneBy(
-            [
-                'id' => $user->getId()
-            ]
-        );
-        dump($profile);
-
-        $repositoryBookings = $em->getRepository(Booking::class, $booking);
+        $user = $this->getUser();
+        $repositoryBookings = $em->getRepository(Booking::class);
 
         $appointments = $repositoryBookings->findBy(
             [
-                'user' => $booking->getId(),
+                'user' => $user->getId(),
                 'status' => 'EN_ATTENTE'
             ],
             ['date' => 'ASC']);
@@ -39,7 +31,7 @@ class UserController extends AbstractController
 
         return $this->render('user/index.html.twig',
             [
-                'profile' => $profile,
+                'profile' => $user,
                 'appointments' => $appointments
             ]
         );

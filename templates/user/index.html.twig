@@ -6,20 +6,20 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 justify-content-center">
-            <div class="card shadow mt-4 text-black-50" style="width: 18rem;">
+            <div class="card shadow mt-4 text-black-50" style="width: 22rem;">
                 <div class="card-header text-black-50 font-weight-bold text-center">
                     <h3>Mon Profil</h3>
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-black-50"><strong>Nom</strong> : {{ profile.lastname }}</li>
-                        <li class="list-group-item text-black-50"><strong>Prénom</strong> : {{ profile.firstname }}</li>
-                        <li class="list-group-item text-black-50"><strong>Age</strong> : {{ profile.age }}</li>
-                        <li class="list-group-item text-black-50"><strong>Email</strong> : {{ profile.email }}</li>
-                        <li class="list-group-item text-black-50"><strong>Adresse</strong> : {{ profile.adress }}</li>
-                        <li class="list-group-item text-black-50"><strong>Ville</strong> : {{ profile.city }}</li>
-                        <li class="list-group-item text-black-50"><strong>Code postal</strong> : {{ profile.zipcode }}</li>
-                        <li class="list-group-item text-black-50"><strong>Téléphone</strong> : {{ profile.telephone }}</li>
+                        <li class="list-group-item text-black-50"><strong>Nom</strong> : {{ profile.lastname | capitalize}}</li>
+                        <li class="list-group-item text-black-50"><strong>Prénom</strong> : {{ profile.firstname | capitalize}}</li>
+                        <li class="list-group-item text-black-50"><strong>Age</strong> : {{ profile.age | capitalize }}</li>
+                        <li class="list-group-item text-black-50"><strong>Email</strong> : {{ profile.email | capitalize}}</li>
+                        <li class="list-group-item text-black-50"><strong>Adresse</strong> : {{ profile.adress | capitalize}}</li>
+                        <li class="list-group-item text-black-50"><strong>Ville</strong> : {{ profile.city | capitalize}}</li>
+                        <li class="list-group-item text-black-50"><strong>Code postal</strong> : {{ profile.zipcode | capitalize}}</li>
+                        <li class="list-group-item text-black-50"><strong>Téléphone</strong> : {{ profile.telephone | capitalize}}</li>
                     </ul>
                     <div class="mt-1 d-flex justify-content-center" >
                     <a href="{{ path('app_user_edit', {'firstname': app.user.firstname, 'lastname': app.user.lastname}) }}" class="btn btn-outline-primary">Modifier</a>
@@ -30,10 +30,10 @@
 
             </div>
         </div>
-
+        {% for appointment in appointments %}
             <h3 class="m-3">Mes rendez-vous</h3>
         <div class="row">
-            {% for appointment in appointments %}
+
             <div class="col-md-4">
             <div class="card mt-4 text-black-50"  style="width: 18rem;">
                 <div class="card-body">
@@ -47,6 +47,8 @@
                     <p class="card-text">Pratique du sport : {{ appointment.sports }}</p>
                 </div>
             </div>
+                {% else %}
+                    <h3 class="text-center">Aucun rendez-vous de prévu</h3>
             </div>
             {% endfor %}
         </div>
