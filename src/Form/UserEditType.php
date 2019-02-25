@@ -76,11 +76,9 @@ class UserEditType extends AbstractType
                 // 2 champs qui doivent avoir la meme valeur
                 RepeatedType::class,
                 [
-                    'required' =>false
-                ],
-                [
                     // ... de type password
                     'type' => PasswordType::class,
+                    'required' => false,
                     // options du 1er champs
                     'first_options' => [
                         'label' => 'Mot de passe :'
