@@ -81,11 +81,11 @@ class UserEditType extends AbstractType
                     'required' => false,
                     // options du 1er champs
                     'first_options' => [
-                        'label' => 'Mot de passe :'
+                        'label' => 'Nouveau mot de passe :'
                     ],
                     // options du 2eme champs
                     'second_options' => [
-                        'label' => 'Confirmation du mot de passe :'
+                        'label' => 'Confirmation du nouveau mot de passe :'
                     ],
                     // message si les 2 champs n'ont pas la meme valeur
                     'invalid_message' => 'La confirmation ne correspond pas au mot de passe'

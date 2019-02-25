@@ -78,7 +78,7 @@ class BookingType extends AbstractType
                 [
                     'label' => 'Antécédents médicaux :',
                     'attr' => array(
-                        'placeholder' => 'exemple : fracture.. intervention chirurgicale.. '
+                        'placeholder' => 'exemple : fracture.. intervention chirurgicale.. / Aucun'
                     )
                 ]
             )
@@ -110,7 +110,10 @@ class BookingType extends AbstractType
             )
             ->add('allergies',TextType::class,[
 
-                'label' => 'Avez-vous des allergies ?'
+                'label' => 'Avez-vous des allergies ?',
+                'attr' => array(
+                    'placeholder' => 'Oui/Non'
+                )
 
             ])
 
