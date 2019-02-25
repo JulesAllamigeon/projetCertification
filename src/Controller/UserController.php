@@ -27,15 +27,20 @@ class UserController extends AbstractController
         );
         dump($profile);
 
-        $repositoryBokkings = $em->getRepository(Booking::class, $booking);
+        $repositoryBookings = $em->getRepository(Booking::class, $user);
 
-        $appointment = $repositoryBokkings->findBy([], [$user->getId()]);
+        $appointments = $repositoryBookings->findBy(
+            [
+                'id' => $user->getId(),
+                'status' => 'EN_ATTENTE'
+            ],
+            ['date' => 'ASC']);
 
 
         return $this->render('user/index.html.twig',
             [
                 'profile' => $profile,
-                'appointment' => $appointment
+                'appointments' => $appointments
             ]
         );
     }
