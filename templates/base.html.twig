@@ -178,16 +178,15 @@
 
 
                     $('.datepicker').datetimepicker({
+                        minDate: 1,
                         hourMin: 9,
                         hourMax: 18,
-                        minDate: 1,
                         firstDay: 1,
                         beforeShowDay: noWeekendsOrHolidays
 
                     });
                 </script>
-                <script>$('.datepicker').datetimepicker();</script>
-                <script src="{{ asset('script/counter.js') }}"></script>
+                {#}<script>$('.datepicker').datetimepicker();</script>{#}
             {% endblock %}
         </body>
 

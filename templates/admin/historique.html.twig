@@ -91,5 +91,13 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent()  }}
-    <script>$('.filterpicker').datetimepicker({minDateTime: null})</script>
+    <script>
+        $('.filterpicker').datetimepicker({
+            minDate: null,
+            hourMin: 9,
+            hourMax: 18,
+            firstDay: 1,
+            beforeShowDay: noWeekendsOrHolidays
+        })
+    </script>
 {% endblock %}
