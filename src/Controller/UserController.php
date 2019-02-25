@@ -64,7 +64,7 @@ class UserController extends AbstractController
                 $em->flush();
 
                 // message de confirmation
-                $this->addFlash('success', "La modification est enregistré");
+                $this->addFlash('success', "La modification est enregistrée");
             } else {
                 $this->addFlash('error', 'Le formulaire contient des erreurs');
             }
