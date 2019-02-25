@@ -15,25 +15,15 @@ class UserController extends AbstractController
     /**
      * @Route("/{firstname}-{lastname}")
      */
-    public function index(User $user, Booking $booking)
+    public function index()
     {
         $em = $this->getDoctrine()->getManager();
-        $repository = $em->getRepository(User::class, $user);
-
-        $profile = $repository->find(
-            [
-                'id' => $user->getId()
-            ]
-        );
-        dump($profile);
-
-
-        $repositoryBookings = $em->getRepository(Booking::class, $booking);
-
+        $user = $this->getUser();
+        $repositoryBookings = $em->getRepository(Booking::class);
 
         $appointments = $repositoryBookings->findBy(
             [
-                'user' => $booking->getId(),
+                'user' => $user->getId(),
                 'status' => 'EN_ATTENTE'
             ],
             ['date' => 'ASC']);
@@ -41,7 +31,7 @@ class UserController extends AbstractController
 
         return $this->render('user/index.html.twig',
             [
-                'profile' => $profile,
+                'profile' => $user,
                 'appointments' => $appointments
             ]
         );
@@ -66,7 +56,7 @@ class UserController extends AbstractController
                 $em->flush();
 
                 // message de confirmation
-                $this->addFlash('success', "La modification est enregistré");
+                $this->addFlash('success', "La modification est enregistrée");
             } else {
                 $this->addFlash('error', 'Le formulaire contient des erreurs');
             }
