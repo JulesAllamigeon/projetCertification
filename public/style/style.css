@@ -16,7 +16,9 @@ html, body{
     transition-duration: 0.7s;
 }
 .npt.card:hover {
+    box-shadow: 5px 5px 5px rgba(45, 67, 88, 0.72);
     background-color: white;
+
 }
 .bg-card{
     background-color: rgba(90, 98, 104, 0.31);
@@ -24,6 +26,7 @@ html, body{
 .bg-head{
     background-color:#a4d4e3 ;
 }
+
 .myFilterButton {
     padding-top: 30px;
     padding-left: 35px;

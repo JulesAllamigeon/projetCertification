@@ -16,13 +16,13 @@
     <body >
         {% if is_granted('ROLE_ADMIN') %}
 
-            <nav class="navbar navbar-dark navbar-expand myAdminNav">
-                <div class="container navbar-nav">
-                    <a class="navbar-brand" href="">DASHBOARD</a>
-                    <div class="navbar-collapse">
-                        <ul class="navbar-nav">
+            <nav class=" navbar-dark navbar-expand-md  myAdminNav">
+                <div class="container navbar-nav ">
+                    <a class="navbar-brand text-center text-uppercase" href="">dashboard</a>
+                    <div class="navbar-collapse ml-3 ">
+                        <ul class="navbar-nav  ">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('app_admin_admin_index') }}">Gestion des Séances</a>
+                                <a class="nav-link " href="{{ path('app_admin_admin_index') }}">Gestion des Séances</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ path('app_admin_admin_allmypatients') }}">Mes Patients</a>
