@@ -112,7 +112,7 @@ class BookingType extends AbstractType
 
                 'label' => 'Avez-vous des allergies ?',
                 'attr' => array(
-                    'placeholder' => 'Oui/Non'
+                    'placeholder' => 'Chocolat, Gluten, Pollen, Arachide / Non'
                 )
 
             ])

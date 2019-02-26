@@ -64,7 +64,10 @@ class UserType extends AbstractType
                 'telephone',
                 TextType::class,
                 [
-                    'label' => 'Téléphone :'
+                    'label' => 'Téléphone (fixe ou portable) :',
+                    'attr' => array(
+                        'placeholder' => 'exemple : 0102030405'
+                    )
                 ]
                 )
             ->add(
